@@ -46,7 +46,10 @@
                 </li>
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">QrMvc</a>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a asp-area="" asp-controller="QrTest" asp-action="Privacy" class="nav-link">Test Admin LTE</a>
+                    <a asp-area="" asp-controller="QrTest" asp-action="Form01" class="nav-link">Form01</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a asp-area="" asp-controller="QrTest" asp-action="Form02" class="nav-link">Form02</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a asp-area="" asp-controller="QrTest" asp-action="TestAdminLTE" class="nav-link">Admin LTE</a>
@@ -184,7 +187,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  @*  <script src="~/js/site.js" asp-append-version="true"></script>*@
+    @*  <script src="~/js/site.js" asp-append-version="true"></script>*@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -12,6 +12,14 @@ namespace QrMvc.Controllers
         {
             return View();
         }
+        public IActionResult Form01()
+        {
+            return View();
+        }
+        public IActionResult Form02()
+        {
+            return View();
+        }
 
     }
 }
