@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "j2i4NEDE5C2XeScJ6yTbeVcmwJRNat04GWojAlIL2Pq34g2Q7gllGQoU5A40uYAGs4JjDKfjHEKAFgSBQTPVUQ==",
+  "success": true,
+  "projectFilePath": "C:\\Git\\DataAccess.Dapper\\DataAccess.Dapper.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\fcapuz\\.nuget\\packages\\dapper\\2.0.143\\dapper.2.0.143.nupkg.sha512"
+  ],
+  "logs": []
+}
