@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WebOficinaDOM.Models.DTO.Organismo>
+
+@using GridMvc.Html
+
+
+@Html.Grid(Model).AutoGenerateColumns().Columns(columns =>
+{
+    columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .SetWidth(20)
+        .RenderValueAs(model => model.Activo == true ?
+            Html.ActionLink(" ", "Edit", "Organismo",
+                new { id = model.IdOrganismo },
+                new { @class = "glyphicon glyphicon-edit prevent-default edit-action", title = "Editar" })
+                .ToHtmlString() + " " +
+             Html.ActionLink(" ", "Delete", "Organismo",
+                        new { id = model.IdOrganismo },
+                        new { @class = "glyphicon glyphicon-remove prevent-default delete-action", title = "Desactivar" }).
+                ToHtmlString() :
+               Html.ActionLink(" ", "Edit", "Organismo",
+                new { id = model.IdOrganismo },
+                new { @class = "glyphicon glyphicon-edit prevent-default edit-action", title = "Editar" })
+                .ToHtmlString()
+                )
+        .Titled("Acciones");
+
+})
+
+
+

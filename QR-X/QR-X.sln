@@ -5,11 +5,11 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QrMvc", "QrMvc.csproj", "{0F752991-3E51-478A-84FB-A3A7C96106BF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess.Dapper", "..\DataAccess.Dapper\DataAccess.Dapper.csproj", "{18272BA2-E191-40EA-8A65-49A48A46E985}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "..\DataAccess.Dapper\DataAccess.csproj", "{18272BA2-E191-40EA-8A65-49A48A46E985}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QRX.Utils", "..\QRX.Utils\QRX.Utils.csproj", "{ECD463F0-1379-468C-9169-DBC349838498}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QRX.Utils", "..\QRX.Utils\QRX.Utils.csproj", "{ECD463F0-1379-468C-9169-DBC349838498}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibsTest", "..\LibsTest\LibsTest.csproj", "{8EE775FE-4132-4442-89C7-E7B2054D7273}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibsTest", "..\LibsTest\LibsTest.csproj", "{8EE775FE-4132-4442-89C7-E7B2054D7273}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

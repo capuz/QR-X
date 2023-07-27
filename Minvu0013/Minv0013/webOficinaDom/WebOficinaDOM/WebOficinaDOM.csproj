@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FA50BF16-25DB-4277-8208-D1DBA2CDD974}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebOficinaDOM</RootNamespace>
+    <AssemblyName>WebOficinaDOM</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <WebGreaseLibPath>..\..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GridMvc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Grid.Mvc.3.0.0\lib\net40\GridMvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Minvu.Security, Version=1.0.0.18, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Minvu.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NLog.4.4.3\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RestSharp.105.2.3\lib\net45\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Z.ExtensionMethods, Version=2.0.10.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Z.ExtensionMethods.2.0.10\lib\net45\Z.ExtensionMethods.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Filters\ValidationActionFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Enums\TipoAuditoria.cs" />
+    <Compile Include="Models\LogBusinessAgent.cs" />
+    <Compile Include="Models\DTO\Log.cs" />
+    <Compile Include="Resources\MenuResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenuResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\OficinaResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OficinaResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\SeccionResouces.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SeccionResouces.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ValidationMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ValidationMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\FuncionarioController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\NoticiaController.cs" />
+    <Compile Include="Controllers\OrganismoController.cs" />
+    <Compile Include="Controllers\SeccionController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContenidoLogoBusinessAgent.cs" />
+    <Compile Include="Models\ContenidoPrincipalBusinessAgent.cs" />
+    <Compile Include="Models\ContenidoSecundarioBusinessAgent.cs" />
+    <Compile Include="Models\DTO\ContenidoLogo.cs" />
+    <Compile Include="Models\DTO\ContenidoPrincipal.cs" />
+    <Compile Include="Models\DTO\ContenidoSecundario.cs" />
+    <Compile Include="Models\DTO\Menu.cs" />
+    <Compile Include="Models\DTO\Noticia.cs" />
+    <Compile Include="Models\DTO\Organismo.cs" />
+    <Compile Include="Models\DTO\OrganismoPadre.cs" />
+    <Compile Include="Models\DTO\OrganismoTipo.cs" />
+    <Compile Include="Models\DTO\Target.cs" />
+    <Compile Include="Models\Enums\ActiveNotice.cs" />
+    <Compile Include="Models\Enums\HtmlTargets.cs" />
+    <Compile Include="Models\MenuBusinessAgent.cs" />
+    <Compile Include="Models\NoticiaBusinessAgent.cs" />
+    <Compile Include="Models\OrganismoBusinessAgent.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\NoticiaResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NoticiaResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\OrganismoResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrganismoResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Session\Imp\SessionUsuario.cs" />
+    <Compile Include="Session\ISessionUsuario.cs" />
+    <Compile Include="Session\SessionFactory.cs" />
+    <Compile Include="Session\SessionWrapper.cs" />
+    <Compile Include="ValidationAttributes\FileExtensions.cs" />
+    <Compile Include="ValidationAttributes\MaxFileSize.cs" />
+    <Compile Include="WebConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Gridmvc.css" />
+    <Content Include="Content\Img\logo-preview\logo-dom.png" />
+    <Content Include="Content\Img\logo\logo-dom.png" />
+    <Content Include="Content\Img\logo\sin-imagen.png" />
+    <Content Include="Content\Img\principal\menu1.png" />
+    <Content Include="Content\StyleOverride.css" />
+    <Content Include="Content\sweetalert2.css" />
+    <Content Include="Content\sweetalert2.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\logo-DOM.png" />
+    <Content Include="Images\noticia\noticia1.jpg" />
+    <Content Include="Images\noticia\noticia2.jpg" />
+    <Content Include="Images\noticia\noticia3.jpg" />
+    <Content Include="Images\noticia\noticia4.jpg" />
+    <Content Include="lib\Minvu.Security.dll" />
+    <Content Include="Scripts\bootstrap-filestyle.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Grid.mvc.readme" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="NLog.config" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\framework-1.0.0.js" />
+    <Content Include="Scripts\gridmvc.js" />
+    <Content Include="Scripts\gridmvc.lang.es.js" />
+    <Content Include="Scripts\gridmvc.min.js" />
+    <None Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.0.3.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.form.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\langs\es.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\pages\Noticia.js" />
+    <Content Include="Scripts\pages\Organismo.js" />
+    <Content Include="Scripts\pages\page.js" />
+    <Content Include="Scripts\pages\secciones.js" />
+    <Content Include="Scripts\pages\menu.js" />
+    <Content Include="Scripts\plugins\advlist\plugin.min.js" />
+    <Content Include="Scripts\plugins\anchor\plugin.min.js" />
+    <Content Include="Scripts\plugins\autolink\plugin.min.js" />
+    <Content Include="Scripts\plugins\autoresize\plugin.min.js" />
+    <Content Include="Scripts\plugins\autosave\plugin.min.js" />
+    <Content Include="Scripts\plugins\bbcode\plugin.min.js" />
+    <Content Include="Scripts\plugins\charmap\plugin.min.js" />
+    <Content Include="Scripts\plugins\codesample\css\prism.css" />
+    <Content Include="Scripts\plugins\codesample\plugin.min.js" />
+    <Content Include="Scripts\plugins\code\plugin.min.js" />
+    <Content Include="Scripts\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Scripts\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Scripts\plugins\directionality\plugin.min.js" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Scripts\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Scripts\plugins\emoticons\plugin.min.js" />
+    <Content Include="Scripts\plugins\example\dialog.html" />
+    <Content Include="Scripts\plugins\example\plugin.min.js" />
+    <Content Include="Scripts\plugins\example_dependency\plugin.min.js" />
+    <Content Include="Scripts\plugins\fullpage\plugin.min.js" />
+    <Content Include="Scripts\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Scripts\plugins\hr\plugin.min.js" />
+    <Content Include="Scripts\plugins\imagetools\plugin.min.js" />
+    <Content Include="Scripts\plugins\image\plugin.min.js" />
+    <Content Include="Scripts\plugins\importcss\plugin.min.js" />
+    <Content Include="Scripts\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Scripts\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Scripts\plugins\link\plugin.min.js" />
+    <Content Include="Scripts\plugins\lists\plugin.min.js" />
+    <Content Include="Scripts\plugins\media\plugin.min.js" />
+    <Content Include="Scripts\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Scripts\plugins\noneditable\plugin.min.js" />
+    <Content Include="Scripts\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Scripts\plugins\paste\plugin.min.js" />
+    <Content Include="Scripts\plugins\preview\plugin.min.js" />
+    <Content Include="Scripts\plugins\print\plugin.min.js" />
+    <Content Include="Scripts\plugins\save\plugin.min.js" />
+    <Content Include="Scripts\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Scripts\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Scripts\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Scripts\plugins\table\plugin.min.js" />
+    <Content Include="Scripts\plugins\template\plugin.min.js" />
+    <Content Include="Scripts\plugins\textcolor\plugin.min.js" />
+    <Content Include="Scripts\plugins\textpattern\plugin.min.js" />
+    <Content Include="Scripts\plugins\toc\plugin.min.js" />
+    <Content Include="Scripts\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Scripts\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Scripts\plugins\visualchars\plugin.min.js" />
+    <Content Include="Scripts\plugins\wordcount\plugin.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\skins\lightgray\content.inline.min.css" />
+    <Content Include="Scripts\skins\lightgray\content.min.css" />
+    <Content Include="Scripts\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Scripts\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Scripts\skins\lightgray\img\anchor.gif" />
+    <Content Include="Scripts\skins\lightgray\img\loader.gif" />
+    <Content Include="Scripts\skins\lightgray\img\object.gif" />
+    <Content Include="Scripts\skins\lightgray\img\trans.gif" />
+    <Content Include="Scripts\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Scripts\skins\lightgray\skin.min.css" />
+    <Content Include="Scripts\sweetalert2.js" />
+    <Content Include="Scripts\sweetalert2.min.js" />
+    <Content Include="Scripts\themes\inlite\theme.min.js" />
+    <Content Include="Scripts\themes\modern\theme.min.js" />
+    <Content Include="Scripts\tinymce.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Organismo\Index.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\Funcionario\Index.cshtml" />
+    <Content Include="Views\Noticia\Index.cshtml" />
+    <Content Include="Views\Seccion\Index.cshtml" />
+    <Content Include="Views\Seccion\ListContenidoPrincipal.cshtml" />
+    <Content Include="Views\Seccion\LogoDOM.cshtml" />
+    <Content Include="Views\Seccion\ListContenidoSecundario.cshtml" />
+    <Content Include="Views\Seccion\EditContenidoPrincipal.cshtml" />
+    <Content Include="Views\Seccion\CreateContenidoPrincipal.cshtml" />
+    <Content Include="Views\Seccion\EditContenidoSecundario.cshtml" />
+    <Content Include="Views\Noticia\List.cshtml" />
+    <Content Include="Views\Shared\_GridPager.cshtml" />
+    <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Noticia\Create.cshtml" />
+    <Content Include="Scripts\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Scripts\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Scripts\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Scripts\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Scripts\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Scripts\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Scripts\langs\readme.md" />
+    <Content Include="Views\Menu\Create.cshtml" />
+    <Content Include="Views\Menu\Edit.cshtml" />
+    <Content Include="Views\Menu\List.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Noticia\Edit.cshtml" />
+    <Content Include="Views\Noticia\Preview.cshtml" />
+    <Content Include="Views\Organismo\List.cshtml" />
+    <Content Include="Views\Organismo\Create.cshtml" />
+    <Content Include="Views\Organismo\Edit.cshtml" />
+    <Content Include="Views\Seccion\CreateContenidoSecundario.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Shared\ErrorModal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\Img\Noticia\" />
+    <Folder Include="Content\Img\Organismo\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Images\Organismo\" />
+    <Folder Include="Log\" />
+    <Folder Include="Uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Framework.csproj">
+      <Project>{8e2a379f-9e03-4f9f-bd48-5479050f7714}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MenuResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MenuResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\OficinaResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OficinaResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\SeccionResouces.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SeccionResouces.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ValidationMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ValidationMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\NoticiaResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>NoticiaResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\OrganismoResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OrganismoResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52543</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52543/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

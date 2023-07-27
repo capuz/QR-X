@@ -1,0 +1,47 @@
+﻿@using Isp.Laboratorios.Models
+@model List<Muestra>
+@{
+
+    var b = new Muestra();
+
+    var grid = new WebGrid(
+        source: Model,
+        canPage: true,
+        //rowsPerPage: Model.PageSize,
+        canSort: false,
+        ajaxUpdateContainerId: "grid");
+
+    //grid.Bind(Model., autoSortAndPage: false);//rowCount: Model.TotalRecords,
+    grid.Pager(WebGridPagerModes.All);
+
+    @grid.GetHtml(htmlAttributes: new { id = "grid" },
+        fillEmptyRows: false,
+
+        tableStyle: "table table-bordered table-hover",
+        mode: WebGridPagerModes.All,
+        columns: grid.Columns(
+            grid.Column("Muestra", format: (item) => item.Codigo),
+            grid.Column("Tipo Muestra", format: (item) => item.TipoMuestra.Nombre),//, style: "col-lg-2"
+            grid.Column("Prestación", format: (item) =>
+            {
+                var subGrid = new WebGrid(item.Examenes);
+                return subGrid.GetHtml(
+                    tableStyle: "table table-bordered table-hover",
+                    columns: subGrid.Columns(
+                           grid.Column("Laboratorio", format: (subItem) => subItem.Prestacion.Laboratorio.Nombre),
+                           grid.Column("Tiempo", format: (subItem) => "X/" + subItem.Prestacion.DiaMaximo),
+
+                           grid.Column("Descripción", format: (subItem) => subItem.Prestacion.Codigo + " - " + subItem.Prestacion.Nombre)
+                        )
+                    );
+            }),
+              grid.Column(header: "Acción", canSort: false, style: "action",
+
+                format: @<text>
+                @Html.Raw("<a data-modal='' href='/products/details/" + item.Id + "' id='" + item.Id + "' title='Detail'> <span class='glyphicon glyphicon-search'> </span> </a>")
+                @Html.Raw("<a data-modal='' href='/products/edit/" + item.Id + "' id='" + item.Id + "' title='Edit'> <span class='glyphicon glyphicon-edit'> </span> </a>")
+                @Html.Raw("<a data-modal='' href='/products/delete/" + item.Id + "' id='" + item.Id + "' title='Delete'> <span class='glyphicon glyphicon-trash'> </span> </a>")
+                </text>)
+                                                                                                            ));
+}
+

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Isp.Laboratorios.Models.ViewModels.MuestraViewModel>
+@{
+    Layout = null;
+    var grid = new WebGrid(
+               Model,
+               canPage: true,//grid.Bind(Model., autoSortAndPage: false);
+               rowsPerPage: 20,//Model.PageSize //pendiente paginación
+               canSort: false,//rowCount: Model.TotalRecords,
+               ajaxUpdateContainerId: "gridContainer",
+               ajaxUpdateCallback: "gridFunctionCheckAll");
+    grid.Pager(WebGridPagerModes.All);
+    //grid.Bind(Model, rowCount: Model., autoSortAndPage: false);
+}
+
+@if (Model != null && Model.Any())
+{
+    <div class="row">
+        <div class="col-md-offset-3 col-md-2">
+            <button type="button" class="btn btn-sm btn-default btn-block" id="btnRechazar"><span class="glyphicon glyphicon-remove"></span> Rechazar</button>
+        </div>
+        <div class="col-md-offset-2 col-md-2">
+            <button type="button" class="btn btn-sm btn-default btn-block" id="btnRecepcionar"><span class="glyphicon glyphicon-arrow-right"></span> Recepcionar</button>
+        </div>
+    </div>
+    <br />
+    @grid.GetHtml(htmlAttributes: new { id = "gridCheckAll" },
+             fillEmptyRows: false,
+        //headerStyle: "bg-primary",
+             tableStyle: "table table-bordered table-hover",
+             columns: grid.Columns(
+
+                 grid.Column(format: @<text> <input type="checkbox" value="@item.Id" name="checkboxId" id="checkboxId" /> </text>,
+                     header: "{checkall}"),
+                 grid.Column("Muestra", format: (item) => item.Codigo),
+                 grid.Column("Fecha Solicitud", format: @<text>@item.SolicitudFecha.ToString("MM/dd/yyyy hh:ss")</text>),
+                 grid.Column("Procedencia", format: (item) => item.ProcedenciaNombre),
+                 grid.Column("Tipo Muestra", format: (item) => item.TipoMuestraNombre),
+
+                 grid.Column("Prestación", format: (item) =>
+                 {
+                     var subGrid = new WebGrid(item.Examenes);
+                     return subGrid.GetHtml(
+                         htmlAttributes: new { id = "subGrid"},
+                         tableStyle: "table table-bordered table-hover",
+                         columns: subGrid.Columns(
+                             grid.Column("Laboratorio",  style: "col-md-5",format: (subItem) => subItem.LaboratorioNombre),
+                             grid.Column("Tiempo", style: "col-md-1", format: (subItem) => Html.Raw(
+                                 subItem.PrestacionDias < subItem.PrestacionDiaMinimo
+                                 ? string.Format("<span class=\"badge progress-bar-success\">{0}</span>", subItem.PrestacionDias + " de " + subItem.PrestacionDiaMaximo)
+                                 : subItem.PrestacionDias > subItem.PrestacionDiaMaximo
+                                 ? string.Format("<span class=\"badge progress-bar-danger\">{0}</span>", subItem.PrestacionDias + " de " + subItem.PrestacionDiaMaximo)
+                                 : string.Format("<span class=\"badge progress-bar-warning\">{0}</span>", subItem.PrestacionDias + " de " + subItem.PrestacionDiaMaximo))),
+                             grid.Column("Descripción",  style: "col-md-6",format: (subItem) => subItem.PrestacionCodigo + " - " + subItem.PrestacionNombre))
+                         );
+                 }),
+                                      grid.Column(header: "Acción", canSort: false, style: "col-md-1 action",
+
+                     format:
+                    @<text>
+                        <a role="button" data-urlaction="@Url.Action("Obtener", "MuestraDetalles", new { muestraId = item.Id})" title="Detalle de muestra">
+                            <span class="fa fa-lg fa-search"></span>
+                        </a>|
+                        <a role="button" data-urlaction="@Url.Action("Obtener", "MuestraObservaciones", new { muestraId = item.Id, muestraCodigo = item.Codigo })" title="Incidencias">
+                            <span class="fa fa-lg fa-comments"></span>
+                        </a>|
+                        <a role="button" data-urlaction="@Url.Action("ObtenerRechazos", "Rechazos", new { muestraId = item.Id, muestraCodigo = item.Codigo })" title="Rechazos">
+                            <span class="glyphicon fa-lg glyphicon-alert"></span>
+                        </a>
+                    </text>)))
+    <div class="row">
+        <div class="col-md-offset-3 col-md-2">
+            <button type="button" class="btn btn-sm btn-default btn-block" id="btnRechazarBottom"><span class="glyphicon glyphicon-remove"></span> Rechazar</button>
+        </div>
+        <div class="col-md-offset-2 col-md-2 ">
+            <button type="button" class="btn btn-sm btn-default btn-block" id="btnRecepcionarBottom"><span class="glyphicon glyphicon-arrow-right"></span> Recepcionar</button>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning text-center" role="alert">No se encontraron Muestras</div>
+}
+
+

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Isp.Laboratorios.Models.ViewModels.ResultadoAnalitoViewModel>
+    @{
+        Layout = null;
+        var grid = new WebGrid(
+                   Model,
+                   canPage: true,//grid.Bind(Model., autoSortAndPage: false);
+                   rowsPerPage: 50,//Model.PageSize //pendiente paginación
+                   canSort: false,//rowCount: Model.TotalRecords,
+                   ajaxUpdateContainerId: "gridContainer",
+                   ajaxUpdateCallback: "gridFunctionCheckAll");
+        grid.Pager(WebGridPagerModes.All);
+    //grid.Bind(Model, rowCount: Model., autoSortAndPage: false);
+    }
+
+    @if (Model != null && Model.Any())
+    {
+        <br />
+        @grid.GetHtml(htmlAttributes: new { id = "gridCheckAll" },
+             fillEmptyRows: false,
+             tableStyle: "table table-bordered table-hover",
+             columns: grid.Columns(
+             grid.Column("Muestra", format: item => item.ExamenMuestraCodigo),
+             grid.Column("Analito", format: item => item.Analito.Nombre),
+             grid.Column("Prestación", format: item => item.ExamenPrestacionCodigo),
+             grid.Column("Lím. Cuantificación", format: item => item.LimiteCuantificacionNombre),
+             grid.Column("Lím. Detección", format: item => item.LimiteDeteccionNombre),
+             grid.Column("Norma", format: item => item.NormaNombre),
+             grid.Column("LMP", format: item => item.LimiteMaximoPermitidoNombre),
+             grid.Column("U. Medida", format: item => item.UnidadMedidaNombre),
+             grid.Column("Resultado", format: item => item.Resultado),
+             grid.Column("Observaciones", format: item => item.Observacion),
+             grid.Column(header: "Acción", canSort: false, style: "action",
+
+                     format:
+                    @<text>
+                        <a role="button" data-urlaction="@Url.Action("ObtenerRechazos", "Rechazos", new { Id = item.Id})" title="Eliminar">
+                            <span class="glyphicon fa-lg glyphicon-alert"></span>
+                        </a>
+                    </text>)
+             ))
+
+    }
+    else
+    {
+        <div class="alert alert-warning text-center" role="alert">No se encontraron Analitos</div>
+    }

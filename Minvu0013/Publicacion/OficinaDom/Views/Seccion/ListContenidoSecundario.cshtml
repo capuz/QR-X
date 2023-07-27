@@ -1,0 +1,27 @@
+﻿@using WebOficinaDOM.Models.DTO
+@using GridMvc.Html
+@using Framework.Core
+@model IEnumerable<ContenidoSecundario>
+
+    @Html.Grid(Model).Columns(columns =>
+    {
+ 
+        columns.Add(m => m.Url).Titled("URL").Css("truncate-cell");
+        columns.Add(m => m.Activo).Titled("Estado").Css("col-md-2")
+            .RenderValueAs(m => m.Activo ? "Habilitado" : "Inhabilitado");
+        columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .RenderValueAs(model =>
+
+            Html.ActionLink(" ", "EditContenidoSecundario", "Seccion",
+                new { id = model.IdContenidoSecundario },
+                new { @class = "glyphicon glyphicon-edit prevent-default edit-action-2", title = "Editar" })
+                .ToHtmlString() + "&nbsp;&nbsp;" +
+            Html.ActionLink(" ", "DeleteContenidoSecundario", "Seccion",
+                new { id = model.IdContenidoSecundario },
+                new { @class = "glyphicon glyphicon-remove prevent-default delete-action-2", title = "Eliminar" }).
+                ToHtmlString())
+        .Titled("Acciones").Css("col-md-1");
+
+    }).Sortable(true).WithPaging(ConfigWrapper.Value<int>("Paging"))

@@ -1,0 +1,53 @@
+﻿@using WebPortalDOM.Models.DTO
+@using WebPortalDOM.Resources
+@model IEnumerable<MenuLayout>
+
+
+@if (Model != null)
+{
+    foreach (var padre in Model.Where(x => x.idMenuPadre == 1))
+    {
+        if (padre.Hijos > 0)
+        {
+            <li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@padre.Nombre<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+
+                    @foreach (var hijo in Model.Where(x => x.idMenuPadre == padre.idMenu))
+                    {
+                        @MenuArbol(hijo, Model.Where(x => x.idMenuPadre == hijo.idMenu))
+                    }
+                </ul>
+            </li>
+        }
+        else
+        {
+            <li> <a href="@padre.Url" target="@padre.TargetString">@padre.Nombre</a></li>
+        }
+    }
+
+}
+else
+{
+    <div class="text-danger text-center">@ErrorMessageResources.NoContentMenu</div>
+}
+@helper MenuArbol(MenuLayout padre, IEnumerable<MenuLayout> hijos)
+{
+    if (padre.Hijos > 0)
+    {
+        <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">@padre.Nombre<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                @foreach (var hijo in hijos)
+                {
+
+                    <li> <a href="@hijo.Url" target="@hijo.TargetString">@hijo.Nombre</a></li>
+                }
+            </ul>
+        </li>
+    }
+    else
+    {
+        <li> <a href="@padre.Url" target="@padre.TargetString">@padre.Nombre</a></li>
+    }
+}

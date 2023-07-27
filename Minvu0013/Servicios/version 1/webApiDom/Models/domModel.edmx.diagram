@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f8c00c7e4fad46469e1bb062b8cd97e9" Name="Diagram1" ZoomLevel="80">
+        <EntityTypeShape EntityType="domModel.AUDITORIA" Width="1.5" PointX="5.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.COMUNA" Width="1.5" PointX="7.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.CONTENIDO_LOGO" Width="1.5" PointX="8.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.CONTENIDO_PRINCIPAL" Width="1.5" PointX="9.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.CONTENIDO_SECUNDARIO" Width="1.5" PointX="9.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.MENU" Width="1.5" PointX="10.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.NOTICIA" Width="1.5" PointX="11.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.NOTICIA_GALERIA" Width="1.5" PointX="5.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.ORGANISMO" Width="1.5" PointX="1.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.ORGANISMO_TIPO" Width="1.5" PointX="1.5" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.PERFIL" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.PERMISO" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.PERMISO_OBJETO" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.REGION" Width="1.5" PointX="11.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.sysdiagrams" Width="1.5" PointX="12.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.USUARIO" Width="1.5" PointX="3.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="domModel.USUARIO_PERFIL" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="domModel.FK_ORGANISMO_ORGANISMO_TIPO" ManuallyRouted="false" />
+        <AssociationConnector Association="domModel.FK_USUARIO_ORGANISMO" ManuallyRouted="false" />
+        <AssociationConnector Association="domModel.FK_PERMISO_PERFIL" ManuallyRouted="false" />
+        <AssociationConnector Association="domModel.FK_USUARIO_PERFIL_PERFIL" ManuallyRouted="false" />
+        <AssociationConnector Association="domModel.FK_PERMISO_PERMISO_OBJETO" ManuallyRouted="false" />
+        <AssociationConnector Association="domModel.FK_USUARIO_PERFIL_USUARIO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

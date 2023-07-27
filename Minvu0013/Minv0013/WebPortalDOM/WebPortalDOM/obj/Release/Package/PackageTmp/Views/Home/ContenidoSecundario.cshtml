@@ -1,0 +1,18 @@
+﻿@using WebPortalDOM.Models.DTO
+
+@model IEnumerable<ContenidoSecundario>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <div class="iframe-container">
+                    <iframe src="@item.Url" allowfullscreen="allowfullscreen" scrolling="no" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    }
+}

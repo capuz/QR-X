@@ -1,0 +1,139 @@
+﻿@model IEnumerable<Isp.Laboratorios.Models.Examen>
+@{
+    ViewBag.Title = "Buscar Datos Generales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var grid = new WebGrid(source: Model);
+    
+    @section Scripts {
+    @Scripts.Render("~/bundles/js-chosen")
+    @Styles.Render("~/bundles/css-chosen")
+    @Scripts.Render("~/bundles/js-grid")
+    }
+}
+
+@using (Html.BeginForm())
+{
+    <div class="panel panel-info">
+        <div class="panel-heading"><b>@ViewBag.Title</b> - Búsquedas </div>
+        <div class="panel-body form-inline">
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("LblLaboratorios", "Laboratorios")
+                </div>
+                <div class="col-md-9">
+                    @Html.DropDownList("LaboratoriosId", null, new { @class = "chosen-select input-sm", @multiple = "multiple" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("LblPrestaciones", "Prestaciones")
+                </div>
+                <div class="col-md-9">
+                    @Html.DropDownList("PrestacionId", null, new { @class = "chosen-select input-sm", @multiple = "multiple" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("LblEstadoExamen", "Estado Examen")
+                </div>
+                <div class="col-md-9">
+                    @Html.DropDownList("ExamenEstado", null, new { @class = "chosen-select input-sm", @multiple = "multiple" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("LblCodigoSolicitud","Solicitud")
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBox("CodigoSolicitud", null, new { @class = "form-control input-sm", placeholder = "10000-2016" })
+                </div>
+                <div class="col-md-1">
+                    @Html.Label("LblNumeroFormulario", "    Formulario")
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBox("NumeroFormulario", null, new { @class = "form-control input-sm", placeholder = "123456" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("LblCodMuestra", "Muestra")
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBox("CodigoMuestra", null, new { @class = "form-control input-sm", placeholder = "10000-2016-19999" })
+                </div>
+                <div class="col-md-1">
+                    @Html.Label("LblListadoNumero", "Listado")
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBox("ListadoNumero", null, new { @class = "form-control input-sm", placeholder = "12345" })
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("Fecha Ingreso")
+                </div>
+                <div class="col-md-3">
+                    <div class="input-daterange input-group" id="datepicker">
+                        @Html.TextBox("FechaIngresoDesde",null, new { @class = "form-control input-sm", placeholder = "Desde" })
+                        <span class="input-group-addon">Al</span>
+                        @Html.TextBox("FechaIngresoHasta", null, new { @class = "form-control input-sm", placeholder = "Hasta" })
+                    </div>
+                </div>
+            </div>
+
+            @*<label>Codigo Soicitud</label>
+            <input type="text" name="CodigoSolicitud" value="" />
+
+            <label>Número de Formulario</label>
+            <input type="text" name="NumeroFormulario" value="" />*@
+
+            <div class="col-md-offset-2 col-md-3">
+                <button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-search" id="btnSubmit"></span> Buscar</button>
+            </div>
+
+        </div>
+    </div>
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+
+@grid.GetHtml(htmlAttributes: new { id = "gridBusquedaGeneral" },
+        fillEmptyRows: false,
+        tableStyle: "table table-bordered table-hover",
+        columns: grid.Columns(
+
+            grid.Column(format: @<text> <input type="checkbox" name="muestrasId" id="@item.Id" /> </text>, header: "{checkall}"),
+            @*grid.Column("Muestra", format: (item) => item.Codigo),
+            grid.Column("Fecha Solicitud", format: @<text>@item.Solicitud.Fecha.ToString("MM/dd/yyyy hh:ss")</text>),
+            grid.Column("Procedencia", format: (item) => item.Solicitud.Cliente.Nombre),*@
+            grid.Column("Muestra.Solicitud.Fecha", "Fecha Solicitud"),
+            grid.Column("Prestacion.Nombre", "Nombre Prestación"),
+            grid.Column("Prestacion.Laboratorio.Nombre", "Nombre Laboratorio"),
+            grid.Column("Muestra.Codigo", "Código de Muestra"),
+            grid.Column("Muestra.Solicitud.Codigo", "Código de Solicitud"),
+
+           
+              grid.Column(header: "Acción", canSort: false, style: "action",
+
+                format: @<text>
+                @Html.Raw("<a data-modal='' href='/products/details/" + item.Id + "' id='" + item.Id + "' title='Detail'> <span class='glyphicon glyphicon-search'> </span> </a>")
+                @Html.Raw("<a data-modal='' href='/products/edit/" + item.Id + "' id='" + item.Id + "' title='Edit'> <span class='glyphicon glyphicon-edit'> </span> </a>")
+                @Html.Raw("<a data-modal='' href='/products/delete/" + item.Id + "' id='" + item.Id + "' title='Delete'> <span class='glyphicon glyphicon-trash'> </span> </a>")
+                </text>
+)
+)
+)
+
+
+
+
+

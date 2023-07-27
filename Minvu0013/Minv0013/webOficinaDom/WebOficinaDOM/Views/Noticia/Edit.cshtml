@@ -1,0 +1,112 @@
+﻿@model WebOficinaDOM.Models.DTO.Noticia
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Editar Noticia</h4>
+</div>
+<div class="modal-body">
+    @using (Html.BeginForm("Edit", "Noticia", FormMethod.Post, new { Id = "EditNoticeForm", @class = "prevent-default" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group required">
+                @Html.LabelFor(model => model.Titular, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Titular, new { htmlAttributes = new { @class = "form-control countChar prevent-invalid-char", placeholder = "Ej: Proyecto Plataforma DOM", maxLength = "100" } })
+                    @Html.ValidationMessageFor(model => model.Titular, "", new { @class = "text-danger" })
+                    <div class="pull-right" id="ccTitular" name="ccTitular">
+                        @{
+        var lengthTitular = Model.IsNull() || Model.Titular.IsNull() ? default(int) : Model.Titular.Length;
+        var textoTitular = string.Format("{0} caracteres de {1} máximo", lengthTitular, 100);
+                        }
+                        @textoTitular
+                    </div>
+                </div>
+            </div>
+            <div class="form-group required">
+                @Html.LabelFor(model => model.Bajada, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Bajada, new { htmlAttributes = new { @class = "form-control countChar prevent-invalid-char", placeholder = "Ej: El Pasado 30 de septiembre...", maxLength = "250" } })
+                    @Html.ValidationMessageFor(model => model.Bajada, "", new { @class = "text-danger" })
+                    <div class="pull-right" id="ccBajada" name="ccBajada">
+                        @{
+        var lengthBajada = Model.IsNull() || Model.Bajada.IsNull() ? default(int) : Model.Bajada.Length;
+        var textoBajada = string.Format("{0} caracteres de {1} máximo", lengthBajada, 250);
+                        }
+                        @textoBajada
+                    </div>
+                </div>
+            </div>
+            <div class="form-group required">
+                @Html.LabelFor(model => model.Cuerpo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Cuerpo, new { htmlAttributes = new { @class = "form-control countChar prevent-invalid-char", placeholder = "Ej: a poco mas de un mes...", maxLength = "8000" } })
+                    @Html.ValidationMessageFor(model => model.Cuerpo, "", new { @class = "text-danger" })
+                    <div class="pull-right" id="ccCuerpo" name="ccCuerpo">
+                        @{
+        var lengthCuerpo = Model.IsNull() || Model.Cuerpo.IsNull() ? default(int) : Model.Cuerpo.Length;
+        var textoCuerpo = string.Format("{0} caracteres de {1} máximo", lengthCuerpo, 8000);
+                        }
+                        @textoCuerpo
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Imagen, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" id="fuImagen" />
+                </div>
+            </div>
+            @if (Model.IsNotNull())
+            {
+                if (Model.Imagen.IsNotNull())
+                {
+                    <div class="form-group">
+                        @Html.Label("Imagen previa", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <img src="~/Content/Img/Noticia/@Model.Imagen" class="img-responsive img-thumbnail" width="200" />
+                        </div>
+                    </div>
+                }
+
+            }
+            <div class="form-group">
+                @Html.Label("Destacada", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.CheckBox("Destacada", htmlAttributes: new { @class = "control-label" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Activo", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.CheckBox("Activo", htmlAttributes: new { @class = "control-label" })
+                </div>
+            </div>
+
+        </div>
+        @Html.HiddenFor(m => m.IdNoticia)
+        @Html.Hidden("FechaCreacion", DateTime.Now)
+        @Html.Hidden("FechaPublicacion", null)
+        @Html.Hidden("Imagen", null);
+    }
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="pull-left">
+                @Html.Label("*", new { style = "color:red" }) @Html.Label("Campo obligatorio", new { @class = "small" })
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="pull-right">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" id="btnUpdateNotice" class="btn btn-primary">Actualizar</button>
+                <button type="button" id="btnEditPreviewNotice" class="btn btn-info">Vista previa</button>
+                <button type="button" id="btnEditPublishNotice" class="btn btn-success">Publicar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

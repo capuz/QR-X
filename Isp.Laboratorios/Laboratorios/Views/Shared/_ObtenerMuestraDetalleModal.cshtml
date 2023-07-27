@@ -1,0 +1,138 @@
+﻿@using Isp.Laboratorios.Models
+@model Muestra
+@{
+    var grid = new WebGrid(
+        Model.Examenes,
+        canPage: true,
+        rowsPerPage: 10,
+        canSort: false
+        );
+    grid.Pager(WebGridPagerModes.All);
+}
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header text-center">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">Detalle de la Muestra @ViewBag.MuestraCodigo</h4>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="alert-info">
+                    Detalle
+                </div>
+                <div class="row row-border">
+                    <div class="col-md-2">
+                        @Html.Label("Solicitud")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.DisplayTextFor(model => model.Solicitud.Codigo)
+                    </div>
+                    <div class="col-md-2">
+                        @Html.LabelFor(model => model.Solicitud.Fecha)
+                    </div>
+                    <div class="col-md-4">
+                        @Html.DisplayTextFor(model => model.Solicitud.Fecha)
+                    </div>
+                </div>
+                <div class="row row-border">
+                    <div class="col-md-2">
+                        @Html.Label("Comercialización")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.DisplayTextFor(model => model.Solicitud.NumeroComercializacion)
+                    </div>
+                    <div class="col-md-2">
+                        @Html.Label("Formulario")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.DisplayTextFor(model => model.Solicitud.NumeroFormulario)
+                    </div>
+                </div>
+                <div class="row row-border">
+                    <div class="col-md-2">
+                        @Html.Label("Procedencia")
+                    </div>
+                    <div class="col-md-10">
+                        @Html.DisplayTextFor(model => model.Solicitud.Procedencia.Nombre)
+                    </div>
+                </div>
+                <div class="row row-border">
+                    <div class="col-md-2">
+                        @Html.Label("Rut Procedencia")
+                    </div>
+                    <div class="col-md-10">
+                        @Html.DisplayTextFor(model => model.Solicitud.Procedencia.Rut)
+                    </div>
+
+                </div>
+                <div class="row row-border">
+                    <div class="col-md-2">
+                        @Html.Label("Despacho")
+                    </div>
+                    <div class="col-md-10">
+                        @string.Format("{0}   {1}, {2}", Model.Solicitud.DireccionesDespacho.Direccion,
+                            Model.Solicitud.DireccionesDespacho.Comuna.Nombre,
+                            Model.Solicitud.DireccionesDespacho.Comuna.Provincia.Region.Nombre)
+                    </div>
+                </div>
+                <div class="row row-border">
+                    <div class="col-md-2">
+                        @Html.Label("Matriz")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.DisplayTextFor(model => model.TipoMuestra.Nombre)
+                    </div>
+                    <div class="col-md-2">
+                        @Html.Label("Lugar de Toma")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.DisplayTextFor(model => model.LugarToma)
+                    </div>
+                </div>
+                <div class="row row-border">
+                    <div class="col-md-2">
+                        @Html.Label("Fecha Toma")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.DisplayTextFor(model => model.Fecha)
+                    </div>
+                    <div class="col-md-2">
+                        @Html.Label("Encargado")
+                    </div>
+                    <div class="col-md-4">
+                        @Html.DisplayTextFor(model => model.Encargado)
+                    </div>
+                </div>
+                <div class="row row-border">
+                    <div class="col-md-2">
+                        @Html.Label("Observación")
+                    </div>
+                    <div class="col-md-10">
+                        @Html.DisplayTextFor(model => model.Observacion)
+                    </div>
+
+                </div>
+                <div class="alert-info">
+                    Exámenes
+                </div>
+                @if (Model != null && Model.Examenes != null)
+                {
+                    @grid.GetHtml(htmlAttributes: new { id = "gridMuestraDetalle" },
+                        fillEmptyRows: false,
+                        headerStyle: "bg-primary",
+                        tableStyle: "table table-bordered table-hover",
+                        columns: grid.Columns(
+                            grid.Column("Código", format: (item) => item.Prestacion.Codigo),
+                            grid.Column("Nombre", format: (item) => item.Prestacion.Nombre),
+                            grid.Column("Estado", format: (item) => item.Estado.Nombre)))
+                }
+
+            </div>
+        </div>
+        <div class="modal-footer text-center">
+            <div class="col-md-offset-5 col-md-5">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

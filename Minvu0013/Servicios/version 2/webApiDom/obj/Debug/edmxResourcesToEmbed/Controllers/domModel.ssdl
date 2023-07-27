@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="domModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Auditoria">
+    <Key>
+      <PropertyRef Name="IdAuditoria" />
+    </Key>
+    <Property Name="IdAuditoria" Type="numeric" Precision="9" Scale="0" Nullable="false" />
+    <Property Name="TipoTransaccion" Type="int" />
+    <Property Name="Tabla" Type="varchar" MaxLength="75" />
+    <Property Name="CodigoTablaOrigen" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="Campo" Type="varchar" MaxLength="128" />
+    <Property Name="ValorOriginal" Type="varchar(max)" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Usuario" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="Contenido_Logo">
+    <Key>
+      <PropertyRef Name="IdContenidoLogo" />
+    </Key>
+    <Property Name="IdContenidoLogo" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RutaFisica" Type="varchar" MaxLength="256" />
+    <Property Name="Imagen" Type="varchar" MaxLength="256" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Contenido_Principal">
+    <Key>
+      <PropertyRef Name="IdContenidoPrincipal" />
+    </Key>
+    <Property Name="IdContenidoPrincipal" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="75" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="2048" />
+    <Property Name="Icono" Type="varchar" MaxLength="256" />
+    <Property Name="Url" Type="varchar" MaxLength="256" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Contenido_Secundario">
+    <Key>
+      <PropertyRef Name="IdContenidoSecundario" />
+    </Key>
+    <Property Name="IdContenidoSecundario" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="varchar" MaxLength="256" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="IdLog" />
+    </Key>
+    <Property Name="IdLog" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoAuditoria" Type="int" />
+    <Property Name="Pagina" Type="varchar" MaxLength="256" />
+    <Property Name="Evento" Type="varchar" MaxLength="256" />
+    <Property Name="Clase" Type="varchar" MaxLength="256" />
+    <Property Name="Cabecera" Type="varchar" MaxLength="256" />
+    <Property Name="Mensaje" Type="varchar(max)" />
+    <Property Name="Ip" Type="varchar" MaxLength="40" />
+    <Property Name="Browser" Type="varchar" MaxLength="75" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Usuario" Type="varchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="IdMenu" />
+    </Key>
+    <Property Name="IdMenu" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdMenuPadre" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="Nombre" Type="varchar" MaxLength="75" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="2048" />
+    <Property Name="Url" Type="varchar" MaxLength="256" />
+    <Property Name="Target" Type="int" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Noticia">
+    <Key>
+      <PropertyRef Name="IdNoticia" />
+    </Key>
+    <Property Name="IdNoticia" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titular" Type="varchar" MaxLength="256" />
+    <Property Name="Bajada" Type="varchar" MaxLength="2048" />
+    <Property Name="Cuerpo" Type="varchar(max)" />
+    <Property Name="Imagen" Type="varchar" MaxLength="256" />
+    <Property Name="Destacada" Type="bit" />
+    <Property Name="Orden" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="FechaPublicacion" Type="datetime" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Noticia_Galeria">
+    <Key>
+      <PropertyRef Name="IdNoticiaGaleria" />
+    </Key>
+    <Property Name="IdNoticiaGaleria" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdNoticia" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="Imagen" Type="varchar" MaxLength="256" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="2048" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Organismo">
+    <Key>
+      <PropertyRef Name="IdOrganismo" />
+    </Key>
+    <Property Name="IdOrganismo" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdOrganismoTipo" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="IdOrganismoPadre" Type="numeric" Precision="9" Scale="0" />
+    <Property Name="CodigoComuna" Type="char" MaxLength="5" />
+    <Property Name="Nombre" Type="varchar" MaxLength="75" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="512" />
+    <Property Name="Icono" Type="varchar" MaxLength="256" />
+    <Property Name="Logo" Type="varchar" MaxLength="256" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Organismo_Tipo">
+    <Key>
+      <PropertyRef Name="IdOrganismoTipo" />
+    </Key>
+    <Property Name="IdOrganismoTipo" Type="numeric" Precision="9" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="75" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="512" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <Association Name="FK_MENU_MENU">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+    <End Role="Menu1" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="IdMenu" />
+      </Principal>
+      <Dependent Role="Menu1">
+        <PropertyRef Name="IdMenuPadre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NOTICIA_GALERIA_NOTICIA">
+    <End Role="Noticia" Type="Self.Noticia" Multiplicity="0..1" />
+    <End Role="Noticia_Galeria" Type="Self.Noticia_Galeria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Noticia">
+        <PropertyRef Name="IdNoticia" />
+      </Principal>
+      <Dependent Role="Noticia_Galeria">
+        <PropertyRef Name="IdNoticia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORGANISMO_ORGANISMO">
+    <End Role="Organismo" Type="Self.Organismo" Multiplicity="0..1" />
+    <End Role="Organismo1" Type="Self.Organismo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organismo">
+        <PropertyRef Name="IdOrganismo" />
+      </Principal>
+      <Dependent Role="Organismo1">
+        <PropertyRef Name="IdOrganismoPadre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORGANISMO_ORGANISMO_TIPO">
+    <End Role="Organismo_Tipo" Type="Self.Organismo_Tipo" Multiplicity="0..1" />
+    <End Role="Organismo" Type="Self.Organismo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organismo_Tipo">
+        <PropertyRef Name="IdOrganismoTipo" />
+      </Principal>
+      <Dependent Role="Organismo">
+        <PropertyRef Name="IdOrganismoTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="USP_MENU_Select_HomePage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_MENU_Select_Mantenedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_MENU_Select_Parent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_ORGANISMO_Select_Filtro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="domModelStoreContainer">
+    <EntitySet Name="Auditoria" EntityType="Self.Auditoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contenido_Logo" EntityType="Self.Contenido_Logo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contenido_Principal" EntityType="Self.Contenido_Principal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contenido_Secundario" EntityType="Self.Contenido_Secundario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Noticia" EntityType="Self.Noticia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Noticia_Galeria" EntityType="Self.Noticia_Galeria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Organismo" EntityType="Self.Organismo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Organismo_Tipo" EntityType="Self.Organismo_Tipo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MENU_MENU" Association="Self.FK_MENU_MENU">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="Menu1" EntitySet="Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NOTICIA_GALERIA_NOTICIA" Association="Self.FK_NOTICIA_GALERIA_NOTICIA">
+      <End Role="Noticia" EntitySet="Noticia" />
+      <End Role="Noticia_Galeria" EntitySet="Noticia_Galeria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORGANISMO_ORGANISMO" Association="Self.FK_ORGANISMO_ORGANISMO">
+      <End Role="Organismo" EntitySet="Organismo" />
+      <End Role="Organismo1" EntitySet="Organismo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORGANISMO_ORGANISMO_TIPO" Association="Self.FK_ORGANISMO_ORGANISMO_TIPO">
+      <End Role="Organismo_Tipo" EntitySet="Organismo_Tipo" />
+      <End Role="Organismo" EntitySet="Organismo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

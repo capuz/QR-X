@@ -1,0 +1,108 @@
+﻿@using WebOficinaDOM.Models.DTO
+
+@model WebOficinaDOM.Models.DTO.Menu
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Editar de Opción de Menú</h4>
+
+</div>
+
+<div class="modal-body">
+    @using (Html.BeginForm("Edit", "Menu", FormMethod.Post, new { Id = "EditMenuForm" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.IdMenu, new { id = "IdMenu" })
+        <div class="form-horizontal">
+            <div class="form-group required">
+                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control prevent-invalid-char countChar", placeholder = "Nombre" })
+                    @Html.ValidationMessageFor(m => m.Nombre, null, new { @class = "text-danger" })
+                    <div class="pull-right" id="ccNombre">
+                        @{
+        var lengthNombre = Model.IsNull() || Model.Nombre.IsNull() ? default(int) : Model.Nombre.Length;
+        var textoNombre = string.Format("{0} caracteres de {1} máximo", lengthNombre, 75);
+                        }
+                        @textoNombre
+                    </div>
+                </div>
+            </div>
+            <div class="form-group required">
+                @Html.LabelFor(m => m.Url, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Url, new { @class = "form-control countChar", placeholder = "Dirección WEB" })
+                    @Html.ValidationMessageFor(m => m.Url, null, new { @class = "text-danger" })
+                    <div class="pull-right" id="ccUrl">
+                        @{
+        var lengthUrl = Model.IsNull() || Model.Url.IsNull() ? default(int) : Model.Url.Length;
+        var textoUrl = string.Format("{0} caracteres de {1} máximo", lengthUrl, 256);
+                        }
+                        @textoUrl
+                    </div>
+                </div>
+            </div>
+            <div class="form-group required">
+                @Html.LabelFor(m => m.Target, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.Target, (SelectList)ViewBag.targets, "-- seleccione campo --", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Target, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group required">
+                @Html.LabelFor(m => m.IdMenuPadre, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.IdMenuPadre, (SelectList)ViewBag.padres, "-- seleccione campo --", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.IdMenuPadre, null, new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.Descripcion, new { @class = "form-control prevent-invalid-char countChar", placeholder = "Descripción" })
+                    <div class="pull-right" id="ccDescripcion">
+                        @{
+        var lengthDescripcion = Model.IsNull() || Model.Descripcion.IsNull() ? default(int) : Model.Descripcion.Length;
+        var textoDescripcion = string.Format("{0} caracteres de {1} máximo", lengthDescripcion, 2048);
+                        }
+                        @textoDescripcion
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Activo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.CheckBoxFor(m => m.Activo)
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="modal-footer">
+
+    @if (Model.IdMenuPadre == 1)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-left">
+                    @Html.Label("La URL de menú no tendrá efecto ya que este es un menú padre", new { @class = "small " })
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col-md-6">
+            <div class="pull-left">
+                @Html.Label("*", new { style = "color:red" }) @Html.Label("Campo obligatorio", new { @class = "small" })
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="pull-right">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" id="btnEditarMenu" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,195 @@
+﻿@using Isp.Laboratorios.Models.ViewModels
+@model IngresoResultadoViewModel
+@{
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/js-chosen")
+        @Styles.Render("~/bundles/css-chosen")
+        @Scripts.Render("~/bundles/js-grid")
+        @Scripts.Render("~/bundles/js-blockUI")}
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Ingreso de Resultados";
+
+}
+@using (Html.BeginForm("IngresoResultados", "Resultados", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="panel panel-info">
+        <div class="panel-heading"><b>Ingresando Resultados Muestra</b>: @Html.DisplayText("lblMuestraCodigo")</div>
+        <div class="panel-body form-inline">
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("Tipo Muestra")
+                </div>
+                <div class="col-md-10">
+                    @Html.DisplayText("TipoMuestraNombre")
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("Prestación")
+                </div>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => x.PrestacionId, (SelectList)ViewBag.ddlPrestaciones, new { @class = "chosen-select input-sm" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("Método")
+                </div>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => x.MetodoId, (SelectList)ViewBag.ddlMetodos, new { @class = "chosen-select input-sm" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("Norma")
+                </div>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(x => x.NormaId, (SelectList)ViewBag.ddlNormas, new { @class = "chosen-select input-sm" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("Límite Cuantificación")
+                </div>
+                <div class="col-md-4">
+                    @Html.DropDownListFor(x => x.LimiteCuantificacionId, (SelectList)ViewBag.ddlLimitesCuantificaciones, new { @class = "chosen-select input-sm" })
+                </div>
+                <div class="col-md-2">
+                    @Html.Label("Límite Detección")
+                </div>
+                <div class="col-md-4">
+                    @Html.DropDownListFor(x => x.LimiteDeteccionId, (SelectList)ViewBag.ddlLimitesDetecciones, new { @class = "chosen-select input-sm" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("LMP")
+                </div>
+                <div class="col-md-4">
+                    @Html.DropDownListFor(x => x.LimiteMaximoPermitidoId, (SelectList)ViewBag.ddlLimitesMaximosPermitidos, new { @class = "chosen-select input-sm" })
+                </div>
+                <div class="col-md-2">
+                    @Html.Label("Unidad de Medida")
+                </div>
+                <div class="col-md-4">
+                    @Html.DropDownListFor(x => x.UnidadMedidaId, (SelectList)ViewBag.ddlUnidadesMedida, new { @class = "chosen-select input-sm" })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("Analitos")
+                </div>
+                <div id="chkAnalitos" class="col-md-10">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("Resultado")
+                </div>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Resultado, string.Empty, new { maxlength = 250, @class = "form-control", required = "required" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("Observación")
+                </div>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.Observacion, new { maxlength = 250, @class = "form-control", @title = "Observación", required = "required" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-2">
+                    <button type="button" class="btn btn-sm btn-default btn-block" id="btnAgregarAnalito"><span class="glyphicon glyphicon-plus"></span> Agregar Analito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="jojo" />
+
+    <div id="gridContainer">
+        @Html.Partial("_GridIngresoResultados", Model.ResultadosAnalitos)
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-2">
+            <button type="submit" class="btn btn-primary btn-block" id="btnConfirmarResultado"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar Resultados</button>
+        </div>
+    </div>
+
+}
+<div id="modalRechazoContainer">
+    @Html.Partial("_ConfirmarRechazoModal")
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        gridFunctionCheckAll();
+
+
+        $('#PrestacionId, #MetodoId').change(function (e) {
+
+            $.ajax({
+                url: "@Url.Action("ObtenerPorMetodoPrestacion", "Analitos")",
+                method: "GET",
+                data: {
+                    prestacionId: $("#PrestacionId").val(),
+                    metodoId: $("#MetodoId").val()
+                },
+                success: function (result) {
+
+                    var contenido = '';
+                    $.each(result, function (index, value) {
+                        contenido += '<div class="col-md-3"><label>';
+                        contenido += '<input type="checkbox" value=' + value.Id + ' id="checkboxId">';
+                        contenido += ' ' + value.Nombre + '</label></div>';
+                    });
+                    $("#chkAnalitos").html(contenido);
+                }
+            });
+        });
+        $('#btnAgregarAnalito').click(function (e) {
+            var analitosIds = [];
+
+            $('input#checkboxId:checked').each(function () {
+                analitosIds.push($(this).val());
+            });
+
+            $.ajax({
+                url: "@Url.Action("AgregarResultadoAnalito", "Analitos")",
+                method: "POST",
+
+                data: {
+                    muestraIdList: JSON.parse('@Html.Raw(Json.Encode(ViewBag.MuestraIdList))'),
+                    examenIdList: JSON.parse('@Html.Raw(Json.Encode(ViewBag.ExamenIdList))'),
+                    analitoIdList: analitosIds,
+                    prestacionId: $("#PrestacionId").val(),
+                    metodoId: $("#MetodoId").val(),
+                    normaId: $("#NormaId").val(),
+                    limiteCuantificacionId: $("#LimiteCuantificacionId").val(),
+                    limiteDeteccionId: $("#LimiteDeteccionId").val(),
+                    limiteMaximoPermitidoId: $("#LimiteMaximoPermitidoId").val(),
+                    unidadMedidaId: $("#UnidadMedidaId").val(),
+                    resultado: $("#Resultado").val(),
+                    observacion: $("#Observacion").val(),
+                    resultadosAnalitos: $("#resultadosAnalitos").val()
+                },
+
+                success: function (result) {
+                    $("#gridContainer").html(result);
+                    renderAlert();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.responseText + " Ha ocurrido un error.");
+                }
+            });
+        });
+
+        $('#PrestacionId').trigger("change");
+    });
+
+
+</script>

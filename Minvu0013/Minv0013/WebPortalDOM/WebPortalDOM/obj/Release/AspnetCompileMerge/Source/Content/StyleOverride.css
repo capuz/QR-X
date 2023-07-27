@@ -1,0 +1,124 @@
+﻿
+/*BREADCRUMB*/
+.breadcrumb {
+    margin-bottom: 10px;
+}
+
+/*CARET MULTILEVEL NAVBAR*/
+@media (min-width: 767px) {
+    .navbar-nav .dropdown-menu .caret {
+        transform: rotate(-90deg);
+    }
+}
+
+
+/*CARRUSEL*/
+.carousel-caption {
+    max-width: 100%;
+    width: 100%;
+    /*background-color: #ffb81c;*/
+    left: 0;
+    bottom: 0;
+}
+
+.carousel-inner > .item > img {
+    display: block;
+    width: 100% !important;
+    max-width: 100%;
+    height: 300px !important;
+}
+
+.carousel-caption {
+    bottom: -28px;
+}
+
+/* HR */
+hr.separador {
+    border-top: 1px solid #8c8b8b;
+}
+/*FECHA NOTICIA BORDE*/
+.separador-fecha {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-top: 2px solid #8c8b8b;
+    border-bottom: 2px solid #8c8b8b;
+    font-weight: bold;
+}
+/*ALINEACION VERTICAL*/
+.vcenter img {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+/*ESPACIO BR*/
+.margen {
+    margin-top: 20px;
+}
+
+.invert {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+/*CAJAS DE MENU CONTENIDO PRINCIPAL*/
+.box-item-principal {
+    padding: 10px 0px 10px 0px;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+    .box-item-principal a {
+        color: #fff;
+    }
+
+    .box-item-principal img {
+        max-height: 66px;
+        max-width: 66px;
+    }
+
+.padding-box-item-principal {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    margin: 0 !important;
+}
+/*FOOTER BOTTOM*/
+.footer-site {
+    width: 100%;
+    margin-top: -100px;
+}
+
+body, html {
+    height: 100%;
+    min-height: 90%;
+    margin: 0;
+}
+
+.content-site {
+    min-height: 100%;
+    padding-bottom: 100px;
+}
+
+.noticia img {
+  max-height: 40%;
+  max-width: 40%;
+  margin-left:20px;
+}
+
+.intrinsic-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+ 
+.iframe-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+.iframe-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

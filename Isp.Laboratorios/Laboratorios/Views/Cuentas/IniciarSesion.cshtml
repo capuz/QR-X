@@ -1,0 +1,27 @@
+﻿@using Isp.Laboratorios.Infrastructure
+@model Isp.Laboratorios.Models.Authentication.Login
+@{
+    Layout = "~/Views/Shared/_LayoutOffline.cshtml";
+    ViewBag.Title = "Iniciar sesión - " + ApplicationInfo.NombreSistema;
+}
+
+@using (Html.BeginForm("IniciarSesion", "Cuentas", FormMethod.Post, new { @class = "form-signin", role = "form" }))
+{
+    <div class="col-md-offset-2 col-md-8 col-md-offset-2">
+        <div class="col-md-offset-3 col-md-6 col-md-offset-3">
+            <div class="jumbotron">
+                <h3>Inicie Sesión</h3>
+                @Html.AntiForgeryToken()
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Usuario", required = "required" })<br />
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Contraseña", required = "required" })<br />
+                <div class="form-group">
+                    @Html.ActionLink("Recuperar Contraseña", "RecuperarContrasena", "Cuentas")
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Iniciar sesión" class="btn btn-lg btn-primary btn-block" id="btnSubmit" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

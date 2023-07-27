@@ -8,27 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
-    @*<header><nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container-fluid">
-    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">QrMvc</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-    <ul class="navbar-nav flex-grow-1">
-    <li class="nav-item">
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </li>
-    </ul>
-    </div>
-    </div>
-    </nav>*@
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-light navbar-white">
         <div class="container">
@@ -44,7 +26,10 @@
                     <a asp-area="" asp-controller="QrTest" asp-action="Form01" class="nav-link">Form01</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a asp-area="" asp-controller="QrTest" asp-action="Form02" class="nav-link">Form02</a>
+                    <a asp-area="" asp-controller="Excel" asp-action="Index" class="nav-link">MiniExcel</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a asp-area="" asp-controller="HtmlTable" asp-action="Index" class="nav-link">HtmlTable</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a asp-area="" asp-controller="QrTest" asp-action="TestAdminLTE" class="nav-link">Admin LTE</a>
@@ -182,5 +167,6 @@
     </footer>
     <script src="~/bootstrap/js/bootstrap.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A3E4F896-FCDA-4661-A967-B3D6DF1683DD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Isp.Laboratorios</RootNamespace>
+    <AssemblyName>Isp.Laboratorios</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXssLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\AntiXssLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.76.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.76.0\lib\net40-client\ClosedXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\HtmlSanitizationLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-chosen.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chosen-sprite%402x.png" />
+    <Content Include="Content\chosen-sprite.png" />
+    <Content Include="Content\css\bootstrap-datepicker3.css" />
+    <Content Include="Content\css\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\css\bootstrap-laboratorio.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Img\favicon.ico" />
+    <Content Include="Content\Img\headerMail.jpg" />
+    <Content Include="Content\Img\logo-pie.jpg" />
+    <Content Include="Content\Img\logo.jpg" />
+    <Content Include="Content\PlantillasHtml\Rechazo.htm" />
+    <Content Include="Content\PlantillasHtml\Incidencia.htm" />
+    <Content Include="Content\PlantillasHtml\CambioContrasena.htm" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <EntityDeploy Include="Models\LaboratorioModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LaboratorioModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\LaboratorioModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LaboratorioModel.edmx</DependentUpon>
+      <LastGenOutput>LaboratorioModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\LaboratorioModel.edmx.diagram">
+      <DependentUpon>LaboratorioModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\LaboratorioModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LaboratorioModel.edmx</DependentUpon>
+      <LastGenOutput>LaboratorioModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\bootstrap-chosen.scss" />
+    <Content Include="Content\bootstrap-chosen.less" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\Sistema de archivos.pubxml">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Scripts\bootstrap-datepicker.es.min.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\checkall-grid.js" />
+    <Content Include="Scripts\chosen-config.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
+    <Content Include="Scripts\datepicker-config.js" />
+    <Content Include="Scripts\ie-emulation-modes-warning.js" />
+    <Content Include="Scripts\funcionesAjax.js" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AlertsController.cs" />
+    <Compile Include="Controllers\AnalitosController.cs" />
+    <Compile Include="Controllers\BusquedasController.cs" />
+    <Compile Include="Controllers\CuentasController.cs" />
+    <Compile Include="Controllers\EstadisticasController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ResultadosController.cs" />
+    <Compile Include="Controllers\MuestraDetallesController.cs" />
+    <Compile Include="Controllers\MuestraObservacionesController.cs" />
+    <Compile Include="Controllers\RecepcionesController.cs" />
+    <Compile Include="Controllers\RechazosController.cs" />
+    <Compile Include="Controllers\VistosBuenosController.cs" />
+    <Compile Include="DataAccessLayer\Repositories\AnalitoRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\BitacoraExamenRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\BitacoraResultadoAnalitoRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\EstadosIncidentes.cs" />
+    <Compile Include="DataAccessLayer\Repositories\ResultadoAnalitoRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\FeriadoRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\UnidadMedidaRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\LimiteMaximoPermitidoRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\LimiteDeteccionRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\LimiteCuantificacionRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\MetodoRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\MotivoRechazoRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\MuestraObservacionRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\NormaRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\PacientesRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\ComunaRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\DireccionDespachoRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\ProvinciaRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\DepartamentoRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\EstadoRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\ExamenRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\LaboratorioRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\MuestraRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\PrestacionRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\RechazoRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\RegionRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\SeccionRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\SolicitudRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\SubdepartamentoRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\TipoMuestraRepository.cs" />
+    <Compile Include="DataAccessLayer\Repositories\TipoObservacionRepository.cs" />
+    <Compile Include="DataAccessLayer\UnitOfWork.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Alert.cs" />
+    <Compile Include="Infrastructure\AlertMessage.cs" />
+    <Compile Include="Infrastructure\Helpers\HtmlHelpers.cs" />
+    <Compile Include="Infrastructure\Util.cs" />
+    <Compile Include="Infrastructure\IRepository.cs" />
+    <Compile Include="Infrastructure\DataAccessLayer\Repositories\AmbientesRepository.cs" />
+    <Compile Include="Infrastructure\DataAccessLayer\Repositories\UsuariosRepository.cs" />
+    <Compile Include="Infrastructure\DataAccessLayer\Repositories\SistemasRepository.cs" />
+    <Compile Include="Infrastructure\DataAccessLayer\Repositories\FuncionalidadesRepository.cs" />
+    <Compile Include="Infrastructure\DataAccessLayer\UnitOfWork.cs" />
+    <Compile Include="Infrastructure\ApplicationInfo.cs" />
+    <Compile Include="Models\Ambiente.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Analito.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AnalitoPorPrestacion.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Authentication\CambioContrasena.cs" />
+    <Compile Include="Models\Authentication\Login.cs" />
+    <Compile Include="Models\Authentication\NuevaContrasena.cs" />
+    <Compile Include="Models\BitacoraExamenes.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BitacoraResultadoAnalito.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BitacoraSistema.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BitacoraTipo.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Comuna.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Departamento.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DireccionesDespacho.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Enums\Rol.cs" />
+    <Compile Include="Models\Enums\EstadoExamen.cs" />
+    <Compile Include="Models\Estado.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EstadoIncidente.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Examen.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Feriado.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FiltroBusqueda.cs" />
+    <Compile Include="Models\FiltrosBusquedas\FiltroBusquedaGeneral.cs" />
+    <Compile Include="Models\FiltrosEstadisticas\FiltroEstadistica.cs" />
+    <Compile Include="Models\Funcionalidad.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FuncionalidadPorRol.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Laboratorio.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LaboratorioModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaboratorioModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LaboratorioModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LaboratorioModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaboratorioModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Mail.cs" />
+    <Compile Include="Models\LimiteCuantificacion.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LimiteDeteccion.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LimiteMaximoPermitido.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Metodo.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetodoPorAnalito.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MotivoRechazo.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MotivoRechazoPorLaboratorio.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Muestra.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MuestraObservacion.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Norma.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Paciente.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Prestacion.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Procedencia.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provincia.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Rechazo.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Region.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResultadoAnalito.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Rol.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Seccion.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sistema.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Solicitud.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Subdepartamento.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sucursales.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoMuestra.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoMuestraPorPrestacion.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoObservacion.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoRetiro.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Unidades.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UnidadMedida.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Usuario.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsuarioPorLaboratorio.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsuarioPorSistema.cs">
+      <DependentUpon>LaboratorioModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModels\IngresoResultadoViewModel.cs" />
+    <Compile Include="Models\ViewModels\ResultadoAnalitoViewModel.cs" />
+    <Compile Include="Models\ViewModels\MuestraViewModel.cs" />
+    <Compile Include="Models\ViewModels\ExamenViewModel.cs" />
+    <Compile Include="Models\ViewModels\RechazoViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Infrastructure\Security\Authentication\Membership.cs" />
+    <Compile Include="Infrastructure\Security\Authorization\RequiresAuthorization.cs" />
+    <Compile Include="Infrastructure\Security\Encrypting\AES.cs" />
+    <Compile Include="Infrastructure\Security\Encrypting\Sha1.cs" />
+    <Compile Include="Infrastructure\ValidationAtributtes\CorreoElectronicoValido.cs" />
+    <Compile Include="Infrastructure\ValidationAtributtes\RUTValido.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Cuentas\IniciarSesion.cshtml" />
+    <Content Include="Views\Cuentas\DesplegarMenu.cshtml" />
+    <Content Include="Views\Shared\_Alerts.cshtml" />
+    <Content Include="Views\Cuentas\CambiarContrasena.cshtml" />
+    <Content Include="Views\Cuentas\NuevaContrasena.cshtml" />
+    <Content Include="Views\Cuentas\RecuperarContrasena.cshtml" />
+    <Content Include="Views\Shared\_LayoutOffline.cshtml" />
+    <Content Include="Views\Cuentas\CambiarContrasenaFea.cshtml" />
+    <Content Include="Views\Recepciones\RecepcionSecretaria.cshtml" />
+    <Content Include="Views\Recepciones\RecepcionLaboratorio.cshtml" />
+    <Content Include="Views\Recepciones\Index.cshtml" />
+    <Content Include="Views\Shared\_Busqueda.cshtml" />
+    <Content Include="Views\Busquedas\BuscarDatosGenerales.cshtml" />
+    <Content Include="Views\Resultados\ParaIngresoResultados.cshtml" />
+    <Content Include="Views\Shared\_GridRecepcionMuestra.cshtml" />
+    <Content Include="Views\Shared\_ConfirmarRechazoModal.cshtml" />
+    <Content Include="Views\Shared\_ObtenerRechazosModal.cshtml" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Views\Shared\_ObtenerMuestraObservacionModal.cshtml" />
+    <Content Include="Views\Estadisticas\EstadisticaResultadosMasivos.cshtml">
+      <BrowseToURL>~/Estadisticas/EstadisticaResultadosMasivos</BrowseToURL>
+    </Content>
+    <Content Include="Views\Shared\_ObtenerMuestraDetalleModal.cshtml" />
+    <Content Include="Views\Otros\Index.cshtml" />
+    <Content Include="Views\Otros\ObtenerBitacora.cshtml" />
+    <Content Include="Views\Otros\NuevaObservacion.cshtml" />
+    <Content Include="Views\Shared\_GridParaIngresoResultados.cshtml" />
+    <Content Include="Views\Resultados\IngresoResultados.cshtml" />
+    <Content Include="Views\Shared\_GridIngresoResultados.cshtml" />
+    <Content Include="Views\VistosBuenos\VistoBuenoLaboratorio.cshtml" />
+    <Content Include="Views\VistosBuenos\VistoBuenoSeccion.cshtml" />
+    <Content Include="Views\VistosBuenos\VistoBuenoSubdepartamento.cshtml" />
+    <Content Include="Views\Resultados\IngresoResultadosMasivo.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\Busquedas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58804</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Isp.Laboratorios</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

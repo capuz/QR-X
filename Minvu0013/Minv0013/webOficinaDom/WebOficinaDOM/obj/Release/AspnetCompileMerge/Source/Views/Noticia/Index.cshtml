@@ -1,0 +1,36 @@
+﻿
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+            <h3 class="title-form">Gestionar Noticias</h3>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:20px;">
+        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+            <button id="btnCreateNotice" class="btn btn-primary btn-md btn-responsive pull-right">
+                Crear
+            </button>
+        </div>
+    </div>
+    <div class="row" style="margin-top:20px">
+
+    </div>
+    <div id="NoticiaList">
+        @Html.Action("List")
+    </div>
+
+    <div class="modal fade large-modal" tabindex="-1" role="dialog" id="NoticeModal" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document" data-backdrop="static">
+            <div id="pageContent" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/pages/Noticia.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap-filestyle.js")"></script>
+ 
+}

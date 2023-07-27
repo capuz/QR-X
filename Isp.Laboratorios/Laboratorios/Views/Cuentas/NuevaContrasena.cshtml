@@ -1,0 +1,26 @@
+﻿@model Isp.Laboratorios.Models.Authentication.NuevaContrasena
+@{
+    Layout = "~/Views/Shared/_LayoutOffline.cshtml";
+    ViewBag.Title = "Nueva Contraseña";
+}
+
+
+@using (Html.BeginForm("NuevaContrasena", "Cuentas", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-signin", role = "form" }))
+{
+    <div class="col-md-offset-3 col-md-6 col-md-offset-3">
+        <div class="col-md-offset-1 col-md-10 col-md-offset-1">
+            <div class="jumbotron">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.DataEnlace)
+                <h3>class="form-signin"> @ViewBag.Title </h3>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Correo, null, new { @class = "form-control", placeholder = "Correo electrónico", type = "email", required = "required" })<br />
+                    @Html.TextBoxFor(m => m.ContrasenaNueva, null, new { @class = "form-control", placeholder = "Nueva Contraseña", type = "password", required = "required" })<br />
+                    @Html.TextBoxFor(m => m.ContrasenaNuevaAConfirmar, null, new { @class = "form-control", placeholder = "Repita nueva contraseña", type = "password", required = "required" })<br />
+                    <input type="submit" value="Crear Nueva contraseña" class="btn btn-lg btn-primary btn-block" id="btnSubmit" />
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+}

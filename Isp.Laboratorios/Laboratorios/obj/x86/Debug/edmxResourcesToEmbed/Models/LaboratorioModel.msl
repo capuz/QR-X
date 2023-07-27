@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LaboratoriosModelStoreContainer" CdmEntityContainer="LaboratorioEntities">
+    <EntitySetMapping Name="Ambientes">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Ambiente">
+        <MappingFragment StoreEntitySet="Ambientes">
+          <ScalarProperty Name="NombreBaseDatos" ColumnName="NombreBaseDatos" />
+          <ScalarProperty Name="NombreServidor" ColumnName="NombreServidor" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sistemas">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Sistema">
+        <MappingFragment StoreEntitySet="Sistemas">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="ConfiguracionFEA" ColumnName="ConfiguracionFEA" />
+          <ScalarProperty Name="ContrasenaFEA" ColumnName="ContrasenaFEA" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="RolId" ColumnName="RolId" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuariosPorSistema">
+      <EntityTypeMapping TypeName="LaboratoriosModel.UsuarioPorSistema">
+        <MappingFragment StoreEntitySet="UsuariosPorSistema">
+          <ScalarProperty Name="SistemaId" ColumnName="SistemaId" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamentos">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Departamento">
+        <MappingFragment StoreEntitySet="Departamentos">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Laboratorios">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Laboratorio">
+        <MappingFragment StoreEntitySet="Laboratorios">
+          <ScalarProperty Name="SeccionId" ColumnName="SeccionId" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Fono" ColumnName="Fono" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prestaciones">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Prestacion">
+        <MappingFragment StoreEntitySet="Prestaciones">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="DiaMaximo" ColumnName="DiaMaximo" />
+          <ScalarProperty Name="DiaMinimo" ColumnName="DiaMinimo" />
+          <ScalarProperty Name="LaboratorioId" ColumnName="LaboratorioId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regiones">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Region">
+        <MappingFragment StoreEntitySet="Regiones">
+          <ScalarProperty Name="NumeroRomano" ColumnName="NumeroRomano" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subdepartamentos">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Subdepartamento">
+        <MappingFragment StoreEntitySet="Subdepartamentos">
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comunas">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Comuna">
+        <MappingFragment StoreEntitySet="Comunas">
+          <ScalarProperty Name="ProvinciaId" ColumnName="ProvinciaId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DireccionesDespachos">
+      <EntityTypeMapping TypeName="LaboratoriosModel.DireccionesDespacho">
+        <MappingFragment StoreEntitySet="DireccionesDespachos">
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Fono" ColumnName="Fono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="ComunaId" ColumnName="ComunaId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estados">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Estado">
+        <MappingFragment StoreEntitySet="Estados">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Muestras">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Muestra">
+        <MappingFragment StoreEntitySet="Muestras">
+          <ScalarProperty Name="TipoRetiroId" ColumnName="TipoRetiroId" />
+          <ScalarProperty Name="SolicitudId" ColumnName="SolicitudId" />
+          <ScalarProperty Name="PacienteId" ColumnName="PacienteId" />
+          <ScalarProperty Name="TipoMuestraId" ColumnName="TipoMuestraId" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="Encargado" ColumnName="Encargado" />
+          <ScalarProperty Name="Lote" ColumnName="Lote" />
+          <ScalarProperty Name="LugarToma" ColumnName="LugarToma" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provincias">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Provincia">
+        <MappingFragment StoreEntitySet="Provincias">
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solicitudes">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Solicitud">
+        <MappingFragment StoreEntitySet="Solicitudes">
+          <ScalarProperty Name="ProcedenciaId" ColumnName="ProcedenciaId" />
+          <ScalarProperty Name="DireccionDespachoId" ColumnName="DireccionDespachoId" />
+          <ScalarProperty Name="ServicioSolicitante" ColumnName="ServicioSolicitante" />
+          <ScalarProperty Name="ProfesionalSolicitante" ColumnName="ProfesionalSolicitante" />
+          <ScalarProperty Name="NumeroComercializacion" ColumnName="NumeroComercializacion" />
+          <ScalarProperty Name="NumeroFormulario" ColumnName="NumeroFormulario" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposMuestraPorPrestaciones">
+      <EntityTypeMapping TypeName="LaboratoriosModel.TipoMuestraPorPrestacion">
+        <MappingFragment StoreEntitySet="TiposMuestraPorPrestaciones">
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="PrestacionId" ColumnName="PrestacionId" />
+          <ScalarProperty Name="TipoMuestraId" ColumnName="TipoMuestraId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposRetiros">
+      <EntityTypeMapping TypeName="LaboratoriosModel.TipoRetiro">
+        <MappingFragment StoreEntitySet="TiposRetiros">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuariosPorLaboratorios">
+      <EntityTypeMapping TypeName="LaboratoriosModel.UsuarioPorLaboratorio">
+        <MappingFragment StoreEntitySet="UsuariosPorLaboratorios">
+          <ScalarProperty Name="LaboratorioId" ColumnName="LaboratorioId" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pacientes">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Paciente">
+        <MappingFragment StoreEntitySet="Pacientes">
+          <ScalarProperty Name="ComunaId" ColumnName="ComunaId" />
+          <ScalarProperty Name="PrevisionId" ColumnName="PrevisionId" />
+          <ScalarProperty Name="NacionalidadId" ColumnName="NacionalidadId" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="EdadAnno" ColumnName="EdadAnno" />
+          <ScalarProperty Name="EdadMes" ColumnName="EdadMes" />
+          <ScalarProperty Name="EdadDia" ColumnName="EdadDia" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Rut" ColumnName="Rut" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BitacoraExamenes">
+      <EntityTypeMapping TypeName="LaboratoriosModel.BitacoraExamenes">
+        <MappingFragment StoreEntitySet="BitacoraExamenes">
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="DespachoClienteId" ColumnName="DespachoClienteId" />
+          <ScalarProperty Name="DespachoRtmId" ColumnName="DespachoRtmId" />
+          <ScalarProperty Name="DespachoLaboratorioId" ColumnName="DespachoLaboratorioId" />
+          <ScalarProperty Name="Correlativo" ColumnName="Correlativo" />
+          <ScalarProperty Name="EstadoId" ColumnName="EstadoId" />
+          <ScalarProperty Name="PrestacionId" ColumnName="PrestacionId" />
+          <ScalarProperty Name="MuestraId" ColumnName="MuestraId" />
+          <ScalarProperty Name="ExamenId" ColumnName="ExamenId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Examenes">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Examen">
+        <MappingFragment StoreEntitySet="Examenes">
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="DespachoClienteId" ColumnName="DespachoClienteId" />
+          <ScalarProperty Name="DespachoRtmId" ColumnName="DespachoRtmId" />
+          <ScalarProperty Name="DespachoLaboratorioId" ColumnName="DespachoLaboratorioId" />
+          <ScalarProperty Name="Correlativo" ColumnName="Correlativo" />
+          <ScalarProperty Name="EstadoId" ColumnName="EstadoId" />
+          <ScalarProperty Name="PrestacionId" ColumnName="PrestacionId" />
+          <ScalarProperty Name="MuestraId" ColumnName="MuestraId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Funcionalidades">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Funcionalidad">
+        <MappingFragment StoreEntitySet="Funcionalidades">
+          <ScalarProperty Name="ALaDerecha" ColumnName="ALaDerecha" />
+          <ScalarProperty Name="FuncionalidadPadreId" ColumnName="FuncionalidadPadreId" />
+          <ScalarProperty Name="SistemaId" ColumnName="SistemaId" />
+          <ScalarProperty Name="Visible" ColumnName="Visible" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="NombreIcono" ColumnName="NombreIcono" />
+          <ScalarProperty Name="Accion" ColumnName="Accion" />
+          <ScalarProperty Name="Controlador" ColumnName="Controlador" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FuncionalidadesPorRol">
+      <EntityTypeMapping TypeName="LaboratoriosModel.FuncionalidadPorRol">
+        <MappingFragment StoreEntitySet="FuncionalidadesPorRol">
+          <ScalarProperty Name="FuncionalidadId" ColumnName="FuncionalidadId" />
+          <ScalarProperty Name="RolId" ColumnName="RolId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Rol">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MotivosRechazo">
+      <EntityTypeMapping TypeName="LaboratoriosModel.MotivoRechazo">
+        <MappingFragment StoreEntitySet="MotivosRechazo">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MotivosRechazoPorLaboratorios">
+      <EntityTypeMapping TypeName="LaboratoriosModel.MotivoRechazoPorLaboratorio">
+        <MappingFragment StoreEntitySet="MotivosRechazoPorLaboratorios">
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="LaboratorioId" ColumnName="LaboratorioId" />
+          <ScalarProperty Name="MotivoRechazoId" ColumnName="MotivoRechazoId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rechazos">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Rechazo">
+        <MappingFragment StoreEntitySet="Rechazos">
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="MotivoRechazoId" ColumnName="MotivoRechazoId" />
+          <ScalarProperty Name="ExamenId" ColumnName="ExamenId" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Secciones">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Seccion">
+        <MappingFragment StoreEntitySet="Secciones">
+          <ScalarProperty Name="ResponsableMail" ColumnName="ResponsableMail" />
+          <ScalarProperty Name="SubdepartamentoId" ColumnName="SubdepartamentoId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Procedencias">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Procedencia">
+        <MappingFragment StoreEntitySet="Procedencias">
+          <ScalarProperty Name="ComunaId" ColumnName="ComunaId" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="NombreFantasia" ColumnName="NombreFantasia" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Rut" ColumnName="Rut" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feriados">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Feriado">
+        <MappingFragment StoreEntitySet="Feriados">
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposObservaciones">
+      <EntityTypeMapping TypeName="LaboratoriosModel.TipoObservacion">
+        <MappingFragment StoreEntitySet="TiposObservaciones">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MuestraObservaciones">
+      <EntityTypeMapping TypeName="LaboratoriosModel.MuestraObservacion">
+        <MappingFragment StoreEntitySet="MuestraObservaciones">
+          <ScalarProperty Name="EstadoIncidenteId" ColumnName="EstadoIncidenteId" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="FechaCierre" ColumnName="FechaCierre" />
+          <ScalarProperty Name="UsuarioIdCierre" ColumnName="UsuarioIdCierre" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="TipoObservacionId" ColumnName="TipoObservacionId" />
+          <ScalarProperty Name="MuestraId" ColumnName="MuestraId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sucursales">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Sucursales">
+        <MappingFragment StoreEntitySet="Sucursales">
+          <ScalarProperty Name="ComunaId" ColumnName="ComunaId" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ProcedenciaId" ColumnName="ProcedenciaId" />
+          <ScalarProperty Name="ContactoCodigo" ColumnName="ContactoCodigo" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unidades">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Unidades">
+        <MappingFragment StoreEntitySet="Unidades">
+          <ScalarProperty Name="ComunaId" ColumnName="ComunaId" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ContactoCodigo" ColumnName="ContactoCodigo" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="SucursalId" ColumnName="SucursalId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Analitos">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Analito">
+        <MappingFragment StoreEntitySet="Analitos">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnalitosPorPrestaciones">
+      <EntityTypeMapping TypeName="LaboratoriosModel.AnalitoPorPrestacion">
+        <MappingFragment StoreEntitySet="AnalitosPorPrestacion">
+          <ScalarProperty Name="AnalitoId" ColumnName="AnalitoId" />
+          <ScalarProperty Name="PrestacionId" ColumnName="PrestacionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Metodos">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Metodo">
+        <MappingFragment StoreEntitySet="Metodos">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MetodosPorAnalitos">
+      <EntityTypeMapping TypeName="LaboratoriosModel.MetodoPorAnalito">
+        <MappingFragment StoreEntitySet="MetodosPorAnalito">
+          <ScalarProperty Name="MetodoId" ColumnName="MetodoId" />
+          <ScalarProperty Name="AnalitoId" ColumnName="AnalitoId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TiposMuestras">
+      <EntityTypeMapping TypeName="LaboratoriosModel.TipoMuestra">
+        <MappingFragment StoreEntitySet="TiposMuestras">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LimitesMaximosPermitidos">
+      <EntityTypeMapping TypeName="LaboratoriosModel.LimiteMaximoPermitido">
+        <MappingFragment StoreEntitySet="LimitesMaximosPermitidos">
+          <ScalarProperty Name="NormaId" ColumnName="NormaId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Normas">
+      <EntityTypeMapping TypeName="LaboratoriosModel.Norma">
+        <MappingFragment StoreEntitySet="Normas">
+          <ScalarProperty Name="AnalitoId" ColumnName="AnalitoId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResultadosAnalitos">
+      <EntityTypeMapping TypeName="LaboratoriosModel.ResultadoAnalito">
+        <MappingFragment StoreEntitySet="ResultadosAnalitos">
+          <ScalarProperty Name="Informar" ColumnName="Informar" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="UnidadMedidaId" ColumnName="UnidadMedidaId" />
+          <ScalarProperty Name="LimiteDeteccionId" ColumnName="LimiteDeteccionId" />
+          <ScalarProperty Name="LimiteMaximoPermitidoId" ColumnName="LimiteMaximoPermitidoId" />
+          <ScalarProperty Name="NormaId" ColumnName="NormaId" />
+          <ScalarProperty Name="LimiteCuantificacionId" ColumnName="LimiteCuantificacionId" />
+          <ScalarProperty Name="MetodoId" ColumnName="MetodoId" />
+          <ScalarProperty Name="AnalitoId" ColumnName="AnalitoId" />
+          <ScalarProperty Name="ExamenId" ColumnName="ExamenId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnidadesMedidas">
+      <EntityTypeMapping TypeName="LaboratoriosModel.UnidadMedida">
+        <MappingFragment StoreEntitySet="UnidadesMedidas">
+          <ScalarProperty Name="AnalitoId" ColumnName="AnalitoId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LimitesDeteccion">
+      <EntityTypeMapping TypeName="LaboratoriosModel.LimiteDeteccion">
+        <MappingFragment StoreEntitySet="LimitesDeteccion">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadosIncidentes">
+      <EntityTypeMapping TypeName="LaboratoriosModel.EstadoIncidente">
+        <MappingFragment StoreEntitySet="EstadosIncidentes">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BitacoraSistemas">
+      <EntityTypeMapping TypeName="LaboratoriosModel.BitacoraSistema">
+        <MappingFragment StoreEntitySet="BitacoraSistema">
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="BitacoraTipoId" ColumnName="BitacoraTipoId" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="SeccionId" ColumnName="SeccionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BitacoraTipos">
+      <EntityTypeMapping TypeName="LaboratoriosModel.BitacoraTipo">
+        <MappingFragment StoreEntitySet="BitacoraTipo">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BitacoraResultadosAnalitos">
+      <EntityTypeMapping TypeName="LaboratoriosModel.BitacoraResultadoAnalito">
+        <MappingFragment StoreEntitySet="BitacoraResultadoAnalito">
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Informar" ColumnName="Informar" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="UnidadMedidaId" ColumnName="UnidadMedidaId" />
+          <ScalarProperty Name="LimiteDeteccionId" ColumnName="LimiteDeteccionId" />
+          <ScalarProperty Name="LimiteMaximoPermitidoId" ColumnName="LimiteMaximoPermitidoId" />
+          <ScalarProperty Name="NormaId" ColumnName="NormaId" />
+          <ScalarProperty Name="LimiteCuantificacionId" ColumnName="LimiteCuantificacionId" />
+          <ScalarProperty Name="MetodoId" ColumnName="MetodoId" />
+          <ScalarProperty Name="AnalitoId" ColumnName="AnalitoId" />
+          <ScalarProperty Name="ExamenId" ColumnName="ExamenId" />
+          <ScalarProperty Name="ResultadoAnalitoId" ColumnName="ResultadoAnalitoId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LimitesCuantificaciones">
+      <EntityTypeMapping TypeName="LaboratoriosModel.LimiteCuantificacion">
+        <MappingFragment StoreEntitySet="LimitesCuantificaciones">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

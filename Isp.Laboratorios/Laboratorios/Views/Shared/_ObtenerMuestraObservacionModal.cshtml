@@ -1,0 +1,193 @@
+﻿@model IEnumerable<Isp.Laboratorios.Models.MuestraObservacion>
+@{
+    var grid = new WebGrid(
+        Model,
+        canPage: true,
+        rowsPerPage: 10,
+        canSort: false
+        );
+    grid.Pager(WebGridPagerModes.All);
+
+}
+<style>
+    .webgrid-rowhover-style {
+        background: #99CCFF;
+    }
+</style>
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header text-center">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">Incidencias de la Muestra @ViewBag.MuestraCodigo</h4>
+
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                @if (Model != null && Model.Any())
+                {
+
+                    @grid.GetHtml(htmlAttributes: new { id = "gridMuestraObservacion" },
+                        fillEmptyRows: false,
+                        headerStyle: "bg-primary",
+                        rowStyle: "webgrid-row-style",
+                        tableStyle: "table table-bordered table-hover",
+                        columns: grid.Columns(
+                            grid.Column("Informado por:", format: (item) => item.Usuario.Nombre + " " + item.Usuario.ApellidoPaterno),
+                            grid.Column("Fecha", format: @<text>@item.Fecha.ToString("MM/dd/yyyy hh:ss")</text>),
+                                             grid.Column("Cierre por:", format: (item) => item.UsuarioCierre == null
+                                                                                   ? string.Empty
+                                                                                   : item.UsuarioCierre.Nombre + " " + item.UsuarioCierre.ApellidoPaterno),
+                                             grid.Column("Fecha Cierre:", format: (item) => item.FechaCierre == null
+                                                 ? string.Empty
+                                                 : item.FechaCierre.ToString("MM/dd/yyyy hh:ss")),
+                                             grid.Column("Observacion", format: (item) => item.Observacion),
+                                             grid.Column("Estado", format: (item) => item.EstadoIncidenteId == 2
+                                                                  ? Html.Raw("<span class=\"glyphicon fa-lg  glyphicon-exclamation-sign text-danger\" data-muestraobservacionid=" + item.Id + " data-estadoincidente=" + item.EstadoIncidenteId + " data-tipoobservacionid=" + item.TipoObservacionId + "></span>")
+                                                                  : Html.Raw("<span class=\"glyphicon fa-lg glyphicon-ok-sign text-success\" data-muestraobservacionid=" + item.Id + " data-estadoincidente=" + item.EstadoIncidenteId + " data-tipoobservacionid=" + item.TipoObservacionId + "></span>"))
+                                                                         ))
+                }
+                <div class="col-md-12">@Html.TextArea("Observacion", new { maxlength = 250, @class = "form-control", @title = "Observación", required = "required" })</div>
+                <div class="col-md-4">@Html.DropDownList("EstadoIncidenteId", null, "[Seleccione Estado]", new { @class = "form-control input-sm", @onchange = "habilitar();" })</div>
+                <div class="col-md-4">
+                    @Html.DropDownList("TiposObservacionId", null, "[Seleccione]", new { @class = "form-control input-sm" })
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="col-md-4">
+                        @*llamado directo para el controlador ExportarExcel*@
+                        <form action="/MuestraObservaciones/ExportarExcel" id="formConfirmarRechazo" method="post" name="chk"> 
+                            <input type="hidden" id="MuestraId" name="MuestraId" value="" />
+                            <button type="submit" class="btn bg-primary" id="exportarExcel"><span class="glyphicon glyphicon-download"></span> Descargar</button>
+                        </form>
+                    </div>
+                    <div id="divEnviarMail" class="col-md-12 checkbox">
+                        <label><input type="checkbox" name="enviarMail" class="EnviarMail" value="true">Enviar Mail a Toma de muestras</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer text-center">
+                <div class="col-md-5">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+                <div class="col-md-5" id="divBotones">
+                    <button type="button" class="btn bg-primary" id="btnGuardarMuestraObservacion" onclick="validarGuardar()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var MuestraObservacionId = null;
+    var TiposObservacionId = null;
+    var Observacion = null;
+    var EstadoIncideciaId = null;
+    var EnviarMail = null;
+
+    $(document).ready(function () {
+        $('#MuestraId').val('@ViewBag.MuestraId');
+        $('.EnviarMail').prop("disabled", true);
+        $('#gridMuestraObservacion span').click(function () {
+            console.log($(this).data("muestraobservacionid"));
+            console.log($(this));
+
+            $('.gridMuestraObservacion tr').not($(this).parent().parent()).removeClass("webgrid-rowhover-style");
+            $(this).parent().parent().toggleClass("webgrid-rowhover-style", "webgrid-rowhover-style");
+
+
+
+            if ($(this).parent().parent().hasClass("webgrid-rowhover-style")) {
+                console.log($(this).parent().prev().html());
+                MuestraObservacionId = $(this).data("muestraobservacionid");
+                $('#Observacion').val($(this).parent().prev().html());
+                $('#EstadoIncidenteId').val($(this).data("estadoincidente"));
+                $('#TiposObservacionId').val($(this).data("tipoobservacionid"));
+                $('#TiposObservacionId').prop("disabled", true);
+                $('.EnviarMail').prop("disabled", false);
+                $('#divBotones').html('<button type="button" class="btn bg-primary" id="btnActualizarMuestraObservacion" onclick="validarActualizar()"><span class="glyphicon glyphicon-floppy-disk"></span> Actualizar</button>');
+                //alert("Has Seleccionado una Incidencia");
+            } else {
+                MuestraObservacionId = null;
+                TiposObservacionId = null;
+                Observacion = null;
+                EstadoIncideciaId = null;
+                EnviarMail = null;
+
+                $('#Observacion').val("");
+                $('#TiposObservacionId').val("");
+                $('#TiposObservacionId').prop("disabled", false);
+                $('#EstadoIncidenteId').val("");
+                $('.EnviarMail').prop("disabled", true);
+                $('#divBotones').html(' <button type="button" class="btn bg-primary" id="btnGuardarMuestraObservacion" onclick="validarGuardar()"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>');
+            }
+        })
+    });
+
+    function validarActualizar() {
+        var Observacion = $('#Observacion').val();
+        var EstadoIncidenteId = $('#EstadoIncidenteId').val();
+        var EnviarMail = $('#EnviarMail').prop("checked");
+        console.log(MuestraObservacionId, Observacion, EstadoIncideciaId, EnviarMail);
+
+        if (MuestraObservacionId != null, Observacion != "" && EstadoIncideciaId != "") {
+            var EstadoIncidente = $("#EstadoIncidente").val();
+            alert("Enviando Mail");
+            $.ajax({
+                url: "@Url.Action("ActualizarEstado", "MuestraObservaciones")",
+                type: 'POST',
+                data:
+                   {
+                       MuestraObservacionId: MuestraObservacionId,
+                       Observacion: $("#Observacion").val(),
+                       EstadoIncidenteId: $("#EstadoIncidenteId").val(),
+                       enviarMail: $(".EnviarMail").prop("checked"),
+                       MuestraId: '@ViewBag.MuestraId'
+                   },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.responseText + " Ha ocurrido un error.");
+                },
+                success: function (data) {
+                    alert("Se ha actualizado el Estado");
+                    $("#modalContainer").html(data);
+                }
+            });
+        }
+        else {
+            alert("Complete los datos");
+        }
+    }
+
+    function validarGuardar() {
+        var Observacion = $('#Observacion').val();
+        var TipoObservacionId = $('#TiposObservacionId').val();
+        var EstadoIncidenteId = $('#EstadoIncidenteId').val();
+
+        if (Observacion != "" && TiposObservacionId != "" && EstadoIncideciaId != "") {
+
+            $.ajax({
+                url: "@Url.Action("Guardar", "MuestraObservaciones")",
+                type: 'POST',
+                data:
+                {
+                    MuestraId: '@ViewBag.MuestraId',
+                    Observacion: Observacion,
+                    TipoObservacionId: TipoObservacionId,
+                    EstadoIncidenteId: EstadoIncidenteId
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.responseText + " Ha ocurrido un error.");
+                },
+                success: function (data) {
+                    $("#modalContainer").html(data);
+                }
+            });
+
+        }
+        else {
+            alert("Complete los datos");
+        }
+    }
+</script>

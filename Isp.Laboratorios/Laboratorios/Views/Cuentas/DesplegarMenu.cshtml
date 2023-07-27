@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Isp.Laboratorios.Models.Funcionalidad>
+@{
+    Layout = null;
+}
+<ul class="nav navbar-nav">
+    @foreach (var funcionalidad in Model.Where(f => f.ALaDerecha != true))
+    {
+        <li class="dropdown">
+            @(funcionalidad.Funcionalidades.Any() 
+            ? Html.Raw(String.Format("<a class='dropdown-toggle' data-toggle='dropdown' href='/{0}/{1}'>{2} <span class='caret'></span></a>", funcionalidad.Controlador, funcionalidad.Accion, funcionalidad.Titulo)) 
+            : Html.Raw(String.Format("<a href='/{0}/{1}'>{2}</a>", funcionalidad.Controlador, funcionalidad.Accion, funcionalidad.Titulo)))
+
+            <ul class="dropdown-menu" role="menu">
+                @foreach (var funcionalidadHija in funcionalidad.Funcionalidades)
+                {
+                    <li>
+                        @Html.ActionLink(funcionalidadHija.Titulo, funcionalidadHija.Accion, funcionalidadHija.Controlador)
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+</ul>
+<ul class="nav navbar-nav navbar-right">
+    @foreach (var funcionalidad in Model.Where(f => f.ALaDerecha))
+    {
+        <li class="dropdown">
+            @Html.Raw(String.Format("<a class='dropdown-toggle' data-toggle='dropdown' href='/{0}/{1}'>{2} <span class='badge alert-danger'>0</span><span class='caret'></span></a>", funcionalidad.Controlador, funcionalidad.Accion, funcionalidad.Titulo.Replace("[NOMBRE_USUARIO]", @ViewBag.NombreCompleto), @ViewBag.Rol))
+            <ul class="dropdown-menu" role="menu">
+                @foreach (var funcionalidadHija in funcionalidad.Funcionalidades)
+                {
+                    <li>
+                        @Html.ActionLink(funcionalidadHija.Titulo, funcionalidadHija.Accion, funcionalidadHija.Controlador, null, new { @class = "text-right" })
+                    </li>
+                }
+
+            </ul>
+        </li>
+    }
+</ul>

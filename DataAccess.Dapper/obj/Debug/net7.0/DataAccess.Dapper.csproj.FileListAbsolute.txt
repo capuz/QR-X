@@ -1,0 +1,17 @@
+C:\Git\DataAccess.Dapper\bin\Debug\net7.0\DataAccess.Dapper.exe
+C:\Git\DataAccess.Dapper\bin\Debug\net7.0\DataAccess.Dapper.deps.json
+C:\Git\DataAccess.Dapper\bin\Debug\net7.0\DataAccess.Dapper.runtimeconfig.json
+C:\Git\DataAccess.Dapper\bin\Debug\net7.0\DataAccess.Dapper.dll
+C:\Git\DataAccess.Dapper\bin\Debug\net7.0\DataAccess.Dapper.pdb
+C:\Git\DataAccess.Dapper\bin\Debug\net7.0\Dapper.dll
+C:\Git\DataAccess.Dapper\obj\Debug\net7.0\DataAccess.Dapper.csproj.AssemblyReference.cache
+C:\Git\DataAccess.Dapper\obj\Debug\net7.0\DataAccess.Dapper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\DataAccess.Dapper\obj\Debug\net7.0\DataAccess.Dapper.AssemblyInfoInputs.cache
+C:\Git\DataAccess.Dapper\obj\Debug\net7.0\DataAccess.Dapper.AssemblyInfo.cs
+C:\Git\DataAccess.Dapper\obj\Debug\net7.0\DataAccess.Dapper.csproj.CoreCompileInputs.cache
+C:\Git\DataAccess.Dapper\obj\Debug\net7.0\DataAccess.Dapper.csproj.CopyComplete
+C:\Git\DataAccess.Dapper\obj\Debug\net7.0\DataAccess.Dapper.dll
+C:\Git\DataAccess.Dapper\obj\Debug\net7.0\refint\DataAccess.Dapper.dll
+C:\Git\DataAccess.Dapper\obj\Debug\net7.0\DataAccess.Dapper.pdb
+C:\Git\DataAccess.Dapper\obj\Debug\net7.0\DataAccess.Dapper.genruntimeconfig.cache
+C:\Git\DataAccess.Dapper\obj\Debug\net7.0\ref\DataAccess.Dapper.dll

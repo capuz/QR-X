@@ -1,0 +1,6 @@
+C:\misdocumentos\Visual Studio 2013\Projects\Isp.Laboratorios\Test\bin\Release\Test.exe.config
+C:\misdocumentos\Visual Studio 2013\Projects\Isp.Laboratorios\Test\bin\Release\Test.exe
+C:\misdocumentos\Visual Studio 2013\Projects\Isp.Laboratorios\Test\bin\Release\Test.pdb
+C:\misdocumentos\Visual Studio 2013\Projects\Isp.Laboratorios\Test\obj\Release\Test.csprojResolveAssemblyReference.cache
+C:\misdocumentos\Visual Studio 2013\Projects\Isp.Laboratorios\Test\obj\Release\Test.exe
+C:\misdocumentos\Visual Studio 2013\Projects\Isp.Laboratorios\Test\obj\Release\Test.pdb

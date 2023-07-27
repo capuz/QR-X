@@ -1,0 +1,24 @@
+﻿@model Isp.Laboratorios.Models.Authentication.CambioContrasena
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Cambiar Contraseña Firma Electrónica Avanzada";
+}
+
+@using (Html.BeginForm("CambiarContrasenaFea", "Cuentas", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+{
+    <div class="col-md-offset-3 col-md-6 col-md-offset-3">
+        <div class="col-md-offset-1 col-md-10 col-md-offset-1">
+            <div class="jumbotron">
+                @Html.AntiForgeryToken()
+                <h3>Cambiar Contraseña FEA</h3>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.ContrasenaActual, null, new { @class = "form-control", placeholder = "Contraseña Actual", type = "password", required = "required" })<br />
+                    @Html.TextBoxFor(m => m.ContrasenaNueva, null, new { @class = "form-control", placeholder = "Nueva Contraseña", type = "password", required = "required" })<br />
+                    @Html.TextBoxFor(m => m.ContrasenaNuevaAConfirmar, null, new { @class = "form-control", placeholder = "Repita nueva contraseña", type = "password", required = "required" })<br />
+                    <input type="submit" value="Realizar Cambio" class="btn btn-lg btn-primary btn-block" id="btnSubmit" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

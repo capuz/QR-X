@@ -1,0 +1,57 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "LibsTest/1.0.0": {
+        "dependencies": {
+          "HtmlTableHelper": "1.2.4",
+          "MiniExcel": "1.31.0"
+        },
+        "runtime": {
+          "LibsTest.dll": {}
+        }
+      },
+      "HtmlTableHelper/1.2.4": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlTableHelper.dll": {
+            "assemblyVersion": "1.2.4.0",
+            "fileVersion": "1.2.4.0"
+          }
+        }
+      },
+      "MiniExcel/1.31.0": {
+        "runtime": {
+          "lib/netstandard2.0/MiniExcel.dll": {
+            "assemblyVersion": "1.31.0.0",
+            "fileVersion": "1.31.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LibsTest/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HtmlTableHelper/1.2.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ABC/dceU4q0J/BiWtLQOR1jLkYb2yi8NAxrAd9N+uvnPpFvpOf0tbL4AyZXEdD9s/jAA2Wtt76V3oKdEQR+woQ==",
+      "path": "htmltablehelper/1.2.4",
+      "hashPath": "htmltablehelper.1.2.4.nupkg.sha512"
+    },
+    "MiniExcel/1.31.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PJHeyqt0Yw8Hg3H7+El0QLbQm1m7tlpNKHJZh9Pr29siTGdAojWSXltFMuoIHLURpW7hT5Mb/f+mW6RBGXYWLg==",
+      "path": "miniexcel/1.31.0",
+      "hashPath": "miniexcel.1.31.0.nupkg.sha512"
+    }
+  }
+}

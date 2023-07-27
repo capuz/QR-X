@@ -1,0 +1,22 @@
+﻿@using QrMvc.Models
+<div class="content px-2">
+    <blockquote class="quote-info mt-0">
+        <h5 id="tip">HtmlTable</h5>
+        <p>Pruebas HtmlTable 1.13.</p>
+    </blockquote>
+</div>
+<div>
+    @Html.Raw(ViewBag.Table)
+</div>
+@section Scripts {
+    <script src="//cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('Table').DataTable();
+        });
+    </script>
+}
+@section Styles {
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+}
+

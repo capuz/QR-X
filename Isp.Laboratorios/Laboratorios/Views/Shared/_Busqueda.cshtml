@@ -1,0 +1,56 @@
+﻿@model Isp.Laboratorios.Models.FiltroBusqueda
+
+<div class="panel panel-info">
+    <div class="panel-heading"><b>@ViewBag.Title</b> - Búsquedas </div>
+    <div class="panel-body form-inline">
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.Laboratorios)
+            </div>
+            <div class="col-md-9">
+                @Html.DropDownListFor(x => x.LaboratoriosId, Model.Laboratorios, new { @class = "chosen-select input-sm", @multiple = "multiple", @name = "laboratoriosId" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(model => model.SolicitudCodigo)
+            </div>
+            <div class="col-md-9">
+                @Html.TextBoxFor(model => model.SolicitudCodigo, new { @class = "form-control input-sm", placeholder = "10000-2016" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                @Html.Label("Muestra")
+            </div>
+            <div class="col-md-9">
+                @Html.TextBoxFor(model => model.MuestraCodigo, new { @class = "form-control input-sm", placeholder = "10000-2016-19999" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                @Html.Label("Listado")
+            </div>
+            <div class="col-md-9">
+                @Html.TextBoxFor(model => model.ListadoNumero, new { @class = "form-control input-sm", placeholder = "59999" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                @Html.Label("Fecha Ingreso")
+            </div>
+            <div class="col-md-3">
+                <div class="input-daterange input-group" id="datepicker">
+                    @Html.TextBoxFor(model => model.FechaIngresoDesde, new { @class = "form-control input-sm", placeholder = "Desde" })
+                    <span class="input-group-addon">Al</span>
+                    @Html.TextBoxFor(model => model.FechaIngresoHasta, new { @class = "form-control input-sm", placeholder = "Hasta" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-2 col-md-3">
+                <button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-search" id="btnSubmit"></span> Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>

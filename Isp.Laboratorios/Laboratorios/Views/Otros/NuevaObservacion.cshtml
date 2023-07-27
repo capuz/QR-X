@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Ingresro de  Observaciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Bitácora</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="panel panel-info">
+        <div class="panel-heading"><b>@ViewBag.Title</b> - Otros </div>
+        <div class="panel-body form-inline">
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("LblLaboratorios", "Laboratorios")
+                </div>
+                <div class="col-md-9">
+                    @Html.DropDownList("LaboratoriosId", null, new { @class = "chosen-select input-sm" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("LblTipo", "Tipo")
+                </div>
+                <div class="col-md-9">
+                    @Html.DropDownList("LaboratoriosId", null, new { @class = "chosen-select input-sm" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("LblObservacion", "Observación")
+                </div>
+                <div class="col-md-9">
+                    @Html.TextArea("Observaciones", new { cols = 100, @rows = 5, onkeypress = "return maximoCaracteres(this,250);" })
+                </div>
+            </div>
+            
+            <div class="col-md-offset-2 col-md-3">
+                <button class="btn btn-primary btn-block"><span id="btnSubmit"></span> Guardar</button>
+            </div>
+
+        </div>
+    </div>
+}
+
+

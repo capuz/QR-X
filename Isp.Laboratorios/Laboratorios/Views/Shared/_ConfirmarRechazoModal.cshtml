@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="modal fade" id="modalConfirmarRechazo" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="titleModalConfirmaRechazo">Rechazo</h4>
+            </div>
+            <form id="formConfirmarRechazo" method="post">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <input type="hidden" id="muestrasIdChecked" name="muestrasIdChecked" />
+
+                        <div class="col-md-5">@Html.Label("Motivo de Rechazo:")</div>
+                        <div class="col-md-7">
+                            <select required name="motivoRechazo" id="motivosRechazo" class="form-control"></select>
+                        </div>
+
+                        <div class="col-md-12">@Html.TextArea("rechazoComentario", new { maxlength = 250, @class = "form-control", @title = "Comentario", required = "required" })</div>
+                        <div id="divEnviarMail" class="col-md-12 checkbox hidden">
+                            <label><input type="checkbox" name="enviarMail" id="chkEnviarMail" value="true">Enviar Mail a Toma de muestras</label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer text-center">
+                    <div class="col-md-5">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="submit" id="btnConfirmaRechazo" value="Confirmar Rechazo" class="btn btn-danger" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#formConfirmarRechazo").on("submit", function () {
+            $.blockUI({
+                message: '<i class="fa fa-2x fa-cog fa-spin"></i>&nbsp&nbsp&nbspProcesando, favor espere…', css: {
+                    border: 'none',
+                    backgroundColor: '#000',
+                    opacity: .8,
+                    color: '#fff'
+                }, baseZ: 2000
+            });
+        });
+    });
+
+</script>

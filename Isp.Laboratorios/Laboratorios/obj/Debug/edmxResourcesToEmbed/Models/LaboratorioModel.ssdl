@@ -1,0 +1,1536 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LaboratoriosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ambientes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NombreServidor" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NombreBaseDatos" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Analitos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="300" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AnalitosPorPrestacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrestacionId" Type="int" Nullable="false" />
+    <Property Name="AnalitoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BitacoraExamenes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExamenId" Type="int" Nullable="false" />
+    <Property Name="MuestraId" Type="int" Nullable="false" />
+    <Property Name="PrestacionId" Type="int" Nullable="false" />
+    <Property Name="EstadoId" Type="int" Nullable="false" />
+    <Property Name="Correlativo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DespachoLaboratorioId" Type="int" />
+    <Property Name="DespachoRtmId" Type="int" />
+    <Property Name="DespachoClienteId" Type="int" />
+    <Property Name="Observacion" Type="varchar" MaxLength="250" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BitacoraResultadoAnalito">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResultadoAnalitoId" Type="int" Nullable="false" />
+    <Property Name="ExamenId" Type="int" Nullable="false" />
+    <Property Name="AnalitoId" Type="int" Nullable="false" />
+    <Property Name="MetodoId" Type="int" Nullable="false" />
+    <Property Name="LimiteCuantificacionId" Type="int" Nullable="false" />
+    <Property Name="NormaId" Type="int" Nullable="false" />
+    <Property Name="LimiteMaximoPermitidoId" Type="int" Nullable="false" />
+    <Property Name="LimiteDeteccionId" Type="int" Nullable="false" />
+    <Property Name="UnidadMedidaId" Type="int" Nullable="false" />
+    <Property Name="Resultado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Observacion" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Informar" Type="bit" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BitacoraSistema">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SeccionId" Type="int" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="BitacoraTipoId" Type="int" Nullable="false" />
+    <Property Name="Observacion" Type="varchar" MaxLength="350" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BitacoraTipo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Comunas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProvinciaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DireccionesDespachos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComunaId" Type="int" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Fono" Type="varchar" MaxLength="50" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Estados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EstadosIncidentes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Examenes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MuestraId" Type="int" Nullable="false" />
+    <Property Name="PrestacionId" Type="int" Nullable="false" />
+    <Property Name="EstadoId" Type="int" Nullable="false" />
+    <Property Name="Correlativo" Type="varchar" MaxLength="50" />
+    <Property Name="DespachoLaboratorioId" Type="int" />
+    <Property Name="DespachoRtmId" Type="int" />
+    <Property Name="DespachoClienteId" Type="int" />
+    <Property Name="Observacion" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Feriados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha" Type="smalldatetime" Nullable="false" />
+    <Property Name="Comentario" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Funcionalidades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Titulo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Controlador" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Accion" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="NombreIcono" Type="varchar" MaxLength="128" />
+    <Property Name="Orden" Type="int" Nullable="false" />
+    <Property Name="Visible" Type="bit" Nullable="false" />
+    <Property Name="SistemaId" Type="int" Nullable="false" />
+    <Property Name="FuncionalidadPadreId" Type="int" />
+    <Property Name="ALaDerecha" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FuncionalidadesPorRol">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="RolId" Type="int" Nullable="false" />
+    <Property Name="FuncionalidadId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Laboratorios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fono" Type="varchar" MaxLength="50" />
+    <Property Name="Fax" Type="varchar" MaxLength="50" />
+    <Property Name="Mail" Type="varchar" MaxLength="50" />
+    <Property Name="SeccionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LimitesCuantificaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LimitesDeteccion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LimitesMaximosPermitidos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NormaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Metodos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MetodosPorAnalito">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AnalitoId" Type="int" Nullable="false" />
+    <Property Name="MetodoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MotivosRechazo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MotivosRechazoPorLaboratorios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MotivoRechazoId" Type="int" Nullable="false" />
+    <Property Name="LaboratorioId" Type="int" Nullable="false" />
+    <Property Name="Orden" Type="int" />
+  </EntityType>
+  <EntityType Name="MuestraObservaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MuestraId" Type="int" Nullable="false" />
+    <Property Name="TipoObservacionId" Type="int" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioIdCierre" Type="int" />
+    <Property Name="FechaCierre" Type="datetime" />
+    <Property Name="Observacion" Type="varchar" MaxLength="250" />
+    <Property Name="EstadoIncidenteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Muestras">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="LugarToma" Type="varchar" MaxLength="250" />
+    <Property Name="Lote" Type="varchar" MaxLength="250" />
+    <Property Name="Encargado" Type="varchar" MaxLength="100" />
+    <Property Name="Observacion" Type="varchar" MaxLength="250" />
+    <Property Name="TipoMuestraId" Type="int" Nullable="false" />
+    <Property Name="PacienteId" Type="int" />
+    <Property Name="SolicitudId" Type="int" Nullable="false" />
+    <Property Name="TipoRetiroId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Normas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="AnalitoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pacientes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rut" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="Nombres" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="ApellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ApellidoMaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="datetime" />
+    <Property Name="Sexo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="EdadDia" Type="int" />
+    <Property Name="EdadMes" Type="int" />
+    <Property Name="EdadAnno" Type="int" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" />
+    <Property Name="Observacion" Type="varchar" MaxLength="250" />
+    <Property Name="Direccion" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="NacionalidadId" Type="int" Nullable="false" />
+    <Property Name="PrevisionId" Type="int" Nullable="false" />
+    <Property Name="ComunaId" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prestaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="LaboratorioId" Type="int" Nullable="false" />
+    <Property Name="DiaMinimo" Type="int" />
+    <Property Name="DiaMaximo" Type="int" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Procedencias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="Rut" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="NombreFantasia" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ComunaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Provincias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="RegionId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rechazos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="ExamenId" Type="int" Nullable="false" />
+    <Property Name="MotivoRechazoId" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Observacion" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Regiones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NumeroRomano" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="ResultadosAnalitos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExamenId" Type="int" Nullable="false" />
+    <Property Name="AnalitoId" Type="int" Nullable="false" />
+    <Property Name="MetodoId" Type="int" Nullable="false" />
+    <Property Name="LimiteCuantificacionId" Type="int" Nullable="false" />
+    <Property Name="NormaId" Type="int" Nullable="false" />
+    <Property Name="LimiteMaximoPermitidoId" Type="int" Nullable="false" />
+    <Property Name="LimiteDeteccionId" Type="int" Nullable="false" />
+    <Property Name="UnidadMedidaId" Type="int" Nullable="false" />
+    <Property Name="Resultado" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Observacion" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Informar" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Secciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SubdepartamentoId" Type="int" Nullable="false" />
+    <Property Name="ResponsableMail" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sistemas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Solicitudes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="NumeroFormulario" Type="int" />
+    <Property Name="NumeroComercializacion" Type="int" Nullable="false" />
+    <Property Name="ProfesionalSolicitante" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ServicioSolicitante" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DireccionDespachoId" Type="int" Nullable="false" />
+    <Property Name="ProcedenciaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subdepartamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DepartamentoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sucursales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="ContactoCodigo" Type="int" Nullable="false" />
+    <Property Name="ProcedenciaId" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ComunaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TiposMuestraPorPrestaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TipoMuestraId" Type="int" Nullable="false" />
+    <Property Name="PrestacionId" Type="int" Nullable="false" />
+    <Property Name="Orden" Type="int" />
+  </EntityType>
+  <EntityType Name="TiposMuestras">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TiposObservaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TiposRetiros">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Unidades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SucursalId" Type="int" Nullable="false" />
+    <Property Name="Codigo" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="ContactoCodigo" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="ComunaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UnidadesMedidas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="AnalitoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="ApellidoPaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ApellidoMaterno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RUT" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CorreoElectronico" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RolId" Type="int" Nullable="false" />
+    <Property Name="NombreUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contrasena" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="ContrasenaFEA" Type="varchar" MaxLength="50" />
+    <Property Name="ConfiguracionFEA" Type="varchar" MaxLength="30" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuariosPorLaboratorios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="LaboratorioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuariosPorSistema">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UsuarioId" Type="int" Nullable="false" />
+    <Property Name="SistemaId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AnalitosPorPrestacion_Analitos">
+    <End Role="Analitos" Type="Self.Analitos" Multiplicity="1" />
+    <End Role="AnalitosPorPrestacion" Type="Self.AnalitosPorPrestacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Analitos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AnalitosPorPrestacion">
+        <PropertyRef Name="AnalitoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnalitosPorPrestacion_Prestaciones">
+    <End Role="Prestaciones" Type="Self.Prestaciones" Multiplicity="1" />
+    <End Role="AnalitosPorPrestacion" Type="Self.AnalitosPorPrestacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prestaciones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AnalitosPorPrestacion">
+        <PropertyRef Name="PrestacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BitacoraResultadoAnalito_ResultadosAnalitos">
+    <End Role="ResultadosAnalitos" Type="Self.ResultadosAnalitos" Multiplicity="1" />
+    <End Role="BitacoraResultadoAnalito" Type="Self.BitacoraResultadoAnalito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResultadosAnalitos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BitacoraResultadoAnalito">
+        <PropertyRef Name="ResultadoAnalitoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BitacoraSistema_BitacoraSistemaTipo">
+    <End Role="BitacoraTipo" Type="Self.BitacoraTipo" Multiplicity="1" />
+    <End Role="BitacoraSistema" Type="Self.BitacoraSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BitacoraTipo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BitacoraSistema">
+        <PropertyRef Name="BitacoraTipoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BitacoraSistema_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="BitacoraSistema" Type="Self.BitacoraSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BitacoraSistema">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comunas_Provincias">
+    <End Role="Provincias" Type="Self.Provincias" Multiplicity="1" />
+    <End Role="Comunas" Type="Self.Comunas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincias">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comunas">
+        <PropertyRef Name="ProvinciaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ControlCambios_Examenes">
+    <End Role="Examenes" Type="Self.Examenes" Multiplicity="1" />
+    <End Role="BitacoraExamenes" Type="Self.BitacoraExamenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Examenes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BitacoraExamenes">
+        <PropertyRef Name="ExamenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ControlCambios_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="BitacoraExamenes" Type="Self.BitacoraExamenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BitacoraExamenes">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DireccionesDeDespachos_Comunas">
+    <End Role="Comunas" Type="Self.Comunas" Multiplicity="1" />
+    <End Role="DireccionesDespachos" Type="Self.DireccionesDespachos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comunas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DireccionesDespachos">
+        <PropertyRef Name="ComunaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Examen_Laboratorio">
+    <End Role="Laboratorios" Type="Self.Laboratorios" Multiplicity="1" />
+    <End Role="Prestaciones" Type="Self.Prestaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Laboratorios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Prestaciones">
+        <PropertyRef Name="LaboratorioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Examenes_Estados">
+    <End Role="Estados" Type="Self.Estados" Multiplicity="1" />
+    <End Role="Examenes" Type="Self.Examenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Examenes">
+        <PropertyRef Name="EstadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Examenes_Muestras">
+    <End Role="Muestras" Type="Self.Muestras" Multiplicity="1" />
+    <End Role="Examenes" Type="Self.Examenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Muestras">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Examenes">
+        <PropertyRef Name="MuestraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Examenes_Prestaciones">
+    <End Role="Prestaciones" Type="Self.Prestaciones" Multiplicity="1" />
+    <End Role="Examenes" Type="Self.Examenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prestaciones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Examenes">
+        <PropertyRef Name="PrestacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Funcionalidades_Funcionalidades">
+    <End Role="Funcionalidades" Type="Self.Funcionalidades" Multiplicity="0..1" />
+    <End Role="Funcionalidades1" Type="Self.Funcionalidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionalidades">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionalidades1">
+        <PropertyRef Name="FuncionalidadPadreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Funcionalidades_Sistemas">
+    <End Role="Sistemas" Type="Self.Sistemas" Multiplicity="1" />
+    <End Role="Funcionalidades" Type="Self.Funcionalidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistemas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionalidades">
+        <PropertyRef Name="SistemaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FuncionalidadPorRoles_Funcionalidades">
+    <End Role="Funcionalidades" Type="Self.Funcionalidades" Multiplicity="1" />
+    <End Role="FuncionalidadesPorRol" Type="Self.FuncionalidadesPorRol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionalidades">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FuncionalidadesPorRol">
+        <PropertyRef Name="FuncionalidadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FuncionalidadPorRoles_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="FuncionalidadesPorRol" Type="Self.FuncionalidadesPorRol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FuncionalidadesPorRol">
+        <PropertyRef Name="RolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Laboratorio_Seccion">
+    <End Role="Secciones" Type="Self.Secciones" Multiplicity="1" />
+    <End Role="Laboratorios" Type="Self.Laboratorios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Secciones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Laboratorios">
+        <PropertyRef Name="SeccionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LimitesMaximosPermitidos_Normas">
+    <End Role="Normas" Type="Self.Normas" Multiplicity="1" />
+    <End Role="LimitesMaximosPermitidos" Type="Self.LimitesMaximosPermitidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Normas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LimitesMaximosPermitidos">
+        <PropertyRef Name="NormaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MetodosPorAnalito_Analitos">
+    <End Role="Analitos" Type="Self.Analitos" Multiplicity="1" />
+    <End Role="MetodosPorAnalito" Type="Self.MetodosPorAnalito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Analitos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MetodosPorAnalito">
+        <PropertyRef Name="AnalitoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MetodosPorAnalito_Metodos">
+    <End Role="Metodos" Type="Self.Metodos" Multiplicity="1" />
+    <End Role="MetodosPorAnalito" Type="Self.MetodosPorAnalito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Metodos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MetodosPorAnalito">
+        <PropertyRef Name="MetodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MotivosRechazoPorLaboratorios_Laboratorios">
+    <End Role="Laboratorios" Type="Self.Laboratorios" Multiplicity="1" />
+    <End Role="MotivosRechazoPorLaboratorios" Type="Self.MotivosRechazoPorLaboratorios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Laboratorios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MotivosRechazoPorLaboratorios">
+        <PropertyRef Name="LaboratorioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MotivosRechazoPorLaboratorios_MotivosRechazo">
+    <End Role="MotivosRechazo" Type="Self.MotivosRechazo" Multiplicity="1" />
+    <End Role="MotivosRechazoPorLaboratorios" Type="Self.MotivosRechazoPorLaboratorios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MotivosRechazo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MotivosRechazoPorLaboratorios">
+        <PropertyRef Name="MotivoRechazoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MuestraObservaciones_EstadosIncidentes">
+    <End Role="EstadosIncidentes" Type="Self.EstadosIncidentes" Multiplicity="1" />
+    <End Role="MuestraObservaciones" Type="Self.MuestraObservaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadosIncidentes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MuestraObservaciones">
+        <PropertyRef Name="EstadoIncidenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MuestraObservaciones_Muestras">
+    <End Role="Muestras" Type="Self.Muestras" Multiplicity="1" />
+    <End Role="MuestraObservaciones" Type="Self.MuestraObservaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Muestras">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MuestraObservaciones">
+        <PropertyRef Name="MuestraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MuestraObservaciones_TiposObservaciones">
+    <End Role="TiposObservaciones" Type="Self.TiposObservaciones" Multiplicity="1" />
+    <End Role="MuestraObservaciones" Type="Self.MuestraObservaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposObservaciones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MuestraObservaciones">
+        <PropertyRef Name="TipoObservacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MuestraObservaciones_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="MuestraObservaciones" Type="Self.MuestraObservaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MuestraObservaciones">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MuestraObservaciones_Usuarios1">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="MuestraObservaciones" Type="Self.MuestraObservaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MuestraObservaciones">
+        <PropertyRef Name="UsuarioIdCierre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Muestras_Pacientes">
+    <End Role="Pacientes" Type="Self.Pacientes" Multiplicity="0..1" />
+    <End Role="Muestras" Type="Self.Muestras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pacientes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Muestras">
+        <PropertyRef Name="PacienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Muestras_Solicitudes">
+    <End Role="Solicitudes" Type="Self.Solicitudes" Multiplicity="1" />
+    <End Role="Muestras" Type="Self.Muestras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solicitudes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Muestras">
+        <PropertyRef Name="SolicitudId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Muestras_TiposDeMuestras">
+    <End Role="TiposMuestras" Type="Self.TiposMuestras" Multiplicity="1" />
+    <End Role="Muestras" Type="Self.Muestras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposMuestras">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Muestras">
+        <PropertyRef Name="TipoMuestraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Muestras_TiposDeRetiros">
+    <End Role="TiposRetiros" Type="Self.TiposRetiros" Multiplicity="1" />
+    <End Role="Muestras" Type="Self.Muestras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposRetiros">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Muestras">
+        <PropertyRef Name="TipoRetiroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Normas_Analitos">
+    <End Role="Analitos" Type="Self.Analitos" Multiplicity="1" />
+    <End Role="Normas" Type="Self.Normas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Analitos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Normas">
+        <PropertyRef Name="AnalitoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provincias_Regiones">
+    <End Role="Regiones" Type="Self.Regiones" Multiplicity="1" />
+    <End Role="Provincias" Type="Self.Provincias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regiones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Provincias">
+        <PropertyRef Name="RegionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rechazos_Examenes">
+    <End Role="Examenes" Type="Self.Examenes" Multiplicity="1" />
+    <End Role="Rechazos" Type="Self.Rechazos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Examenes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rechazos">
+        <PropertyRef Name="ExamenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rechazos_MotivosRechazo">
+    <End Role="MotivosRechazo" Type="Self.MotivosRechazo" Multiplicity="1" />
+    <End Role="Rechazos" Type="Self.Rechazos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MotivosRechazo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rechazos">
+        <PropertyRef Name="MotivoRechazoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rechazos_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Rechazos" Type="Self.Rechazos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rechazos">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResultadosAmbientes_Examenes">
+    <End Role="Examenes" Type="Self.Examenes" Multiplicity="1" />
+    <End Role="ResultadosAnalitos" Type="Self.ResultadosAnalitos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Examenes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResultadosAnalitos">
+        <PropertyRef Name="ExamenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResultadosAnalitos_Analitos">
+    <End Role="Analitos" Type="Self.Analitos" Multiplicity="1" />
+    <End Role="ResultadosAnalitos" Type="Self.ResultadosAnalitos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Analitos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResultadosAnalitos">
+        <PropertyRef Name="AnalitoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResultadosAnalitos_LimitesCuentificaciones">
+    <End Role="LimitesCuantificaciones" Type="Self.LimitesCuantificaciones" Multiplicity="1" />
+    <End Role="ResultadosAnalitos" Type="Self.ResultadosAnalitos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LimitesCuantificaciones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResultadosAnalitos">
+        <PropertyRef Name="LimiteCuantificacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResultadosAnalitos_LimitesDeteccion">
+    <End Role="LimitesDeteccion" Type="Self.LimitesDeteccion" Multiplicity="1" />
+    <End Role="ResultadosAnalitos" Type="Self.ResultadosAnalitos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LimitesDeteccion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResultadosAnalitos">
+        <PropertyRef Name="LimiteDeteccionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResultadosAnalitos_LimitesMaximosPermitidos">
+    <End Role="LimitesMaximosPermitidos" Type="Self.LimitesMaximosPermitidos" Multiplicity="1" />
+    <End Role="ResultadosAnalitos" Type="Self.ResultadosAnalitos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LimitesMaximosPermitidos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResultadosAnalitos">
+        <PropertyRef Name="LimiteMaximoPermitidoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResultadosAnalitos_Metodos">
+    <End Role="Metodos" Type="Self.Metodos" Multiplicity="1" />
+    <End Role="ResultadosAnalitos" Type="Self.ResultadosAnalitos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Metodos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResultadosAnalitos">
+        <PropertyRef Name="MetodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResultadosAnalitos_Normas">
+    <End Role="Normas" Type="Self.Normas" Multiplicity="1" />
+    <End Role="ResultadosAnalitos" Type="Self.ResultadosAnalitos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Normas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResultadosAnalitos">
+        <PropertyRef Name="NormaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResultadosAnalitos_UnidadesMedidas">
+    <End Role="UnidadesMedidas" Type="Self.UnidadesMedidas" Multiplicity="1" />
+    <End Role="ResultadosAnalitos" Type="Self.ResultadosAnalitos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnidadesMedidas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResultadosAnalitos">
+        <PropertyRef Name="UnidadMedidaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Seccion_Subdepartamento">
+    <End Role="Subdepartamentos" Type="Self.Subdepartamentos" Multiplicity="1" />
+    <End Role="Secciones" Type="Self.Secciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subdepartamentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Secciones">
+        <PropertyRef Name="SubdepartamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Solicitudes_DireccionesDeDespachos">
+    <End Role="DireccionesDespachos" Type="Self.DireccionesDespachos" Multiplicity="1" />
+    <End Role="Solicitudes" Type="Self.Solicitudes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DireccionesDespachos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Solicitudes">
+        <PropertyRef Name="DireccionDespachoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Solicitudes_Procedencias">
+    <End Role="Procedencias" Type="Self.Procedencias" Multiplicity="1" />
+    <End Role="Solicitudes" Type="Self.Solicitudes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Procedencias">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Solicitudes">
+        <PropertyRef Name="ProcedenciaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subdepartamento_Departamento">
+    <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+    <End Role="Subdepartamentos" Type="Self.Subdepartamentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamentos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subdepartamentos">
+        <PropertyRef Name="DepartamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sucursales_Comunas">
+    <End Role="Comunas" Type="Self.Comunas" Multiplicity="1" />
+    <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comunas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sucursales">
+        <PropertyRef Name="ComunaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sucursales_Procedencias">
+    <End Role="Procedencias" Type="Self.Procedencias" Multiplicity="1" />
+    <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Procedencias">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sucursales">
+        <PropertyRef Name="ProcedenciaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SucursalUnidad_Comunas">
+    <End Role="Comunas" Type="Self.Comunas" Multiplicity="1" />
+    <End Role="Unidades" Type="Self.Unidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comunas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unidades">
+        <PropertyRef Name="ComunaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SucursalUnidad_Sucursales">
+    <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="1" />
+    <End Role="Unidades" Type="Self.Unidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sucursales">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Unidades">
+        <PropertyRef Name="SucursalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TiposMuestraPorPrestaciones_Prestaciones">
+    <End Role="Prestaciones" Type="Self.Prestaciones" Multiplicity="1" />
+    <End Role="TiposMuestraPorPrestaciones" Type="Self.TiposMuestraPorPrestaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prestaciones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TiposMuestraPorPrestaciones">
+        <PropertyRef Name="PrestacionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TiposMuestraPorPrestaciones_TiposMuestras">
+    <End Role="TiposMuestras" Type="Self.TiposMuestras" Multiplicity="1" />
+    <End Role="TiposMuestraPorPrestaciones" Type="Self.TiposMuestraPorPrestaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TiposMuestras">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TiposMuestraPorPrestaciones">
+        <PropertyRef Name="TipoMuestraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnidadesDeMedidas_Analitos">
+    <End Role="Analitos" Type="Self.Analitos" Multiplicity="1" />
+    <End Role="UnidadesMedidas" Type="Self.UnidadesMedidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Analitos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UnidadesMedidas">
+        <PropertyRef Name="AnalitoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioPorSistema_Sistema">
+    <End Role="Sistemas" Type="Self.Sistemas" Multiplicity="1" />
+    <End Role="UsuariosPorSistema" Type="Self.UsuariosPorSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistemas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsuariosPorSistema">
+        <PropertyRef Name="SistemaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioPorSistema_Usuario">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="UsuariosPorSistema" Type="Self.UsuariosPorSistema" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsuariosPorSistema">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="RolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosPorLaboratorios_Laboratorios">
+    <End Role="Laboratorios" Type="Self.Laboratorios" Multiplicity="1" />
+    <End Role="UsuariosPorLaboratorios" Type="Self.UsuariosPorLaboratorios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Laboratorios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsuariosPorLaboratorios">
+        <PropertyRef Name="LaboratorioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuariosPorLaboratorios_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="UsuariosPorLaboratorios" Type="Self.UsuariosPorLaboratorios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsuariosPorLaboratorios">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LaboratoriosModelStoreContainer">
+    <EntitySet Name="Ambientes" EntityType="Self.Ambientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Analitos" EntityType="Self.Analitos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AnalitosPorPrestacion" EntityType="Self.AnalitosPorPrestacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BitacoraExamenes" EntityType="Self.BitacoraExamenes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BitacoraResultadoAnalito" EntityType="Self.BitacoraResultadoAnalito" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BitacoraSistema" EntityType="Self.BitacoraSistema" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BitacoraTipo" EntityType="Self.BitacoraTipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comunas" EntityType="Self.Comunas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DireccionesDespachos" EntityType="Self.DireccionesDespachos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstadosIncidentes" EntityType="Self.EstadosIncidentes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Examenes" EntityType="Self.Examenes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feriados" EntityType="Self.Feriados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Funcionalidades" EntityType="Self.Funcionalidades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FuncionalidadesPorRol" EntityType="Self.FuncionalidadesPorRol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Laboratorios" EntityType="Self.Laboratorios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LimitesCuantificaciones" EntityType="Self.LimitesCuantificaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LimitesDeteccion" EntityType="Self.LimitesDeteccion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LimitesMaximosPermitidos" EntityType="Self.LimitesMaximosPermitidos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Metodos" EntityType="Self.Metodos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MetodosPorAnalito" EntityType="Self.MetodosPorAnalito" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MotivosRechazo" EntityType="Self.MotivosRechazo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MotivosRechazoPorLaboratorios" EntityType="Self.MotivosRechazoPorLaboratorios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MuestraObservaciones" EntityType="Self.MuestraObservaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Muestras" EntityType="Self.Muestras" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Normas" EntityType="Self.Normas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pacientes" EntityType="Self.Pacientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prestaciones" EntityType="Self.Prestaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Procedencias" EntityType="Self.Procedencias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provincias" EntityType="Self.Provincias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rechazos" EntityType="Self.Rechazos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Regiones" EntityType="Self.Regiones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ResultadosAnalitos" EntityType="Self.ResultadosAnalitos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Secciones" EntityType="Self.Secciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sistemas" EntityType="Self.Sistemas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Solicitudes" EntityType="Self.Solicitudes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subdepartamentos" EntityType="Self.Subdepartamentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sucursales" EntityType="Self.Sucursales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TiposMuestraPorPrestaciones" EntityType="Self.TiposMuestraPorPrestaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TiposMuestras" EntityType="Self.TiposMuestras" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TiposObservaciones" EntityType="Self.TiposObservaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TiposRetiros" EntityType="Self.TiposRetiros" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Unidades" EntityType="Self.Unidades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnidadesMedidas" EntityType="Self.UnidadesMedidas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsuariosPorLaboratorios" EntityType="Self.UsuariosPorLaboratorios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsuariosPorSistema" EntityType="Self.UsuariosPorSistema" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AnalitosPorPrestacion_Analitos" Association="Self.FK_AnalitosPorPrestacion_Analitos">
+      <End Role="Analitos" EntitySet="Analitos" />
+      <End Role="AnalitosPorPrestacion" EntitySet="AnalitosPorPrestacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnalitosPorPrestacion_Prestaciones" Association="Self.FK_AnalitosPorPrestacion_Prestaciones">
+      <End Role="Prestaciones" EntitySet="Prestaciones" />
+      <End Role="AnalitosPorPrestacion" EntitySet="AnalitosPorPrestacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BitacoraResultadoAnalito_ResultadosAnalitos" Association="Self.FK_BitacoraResultadoAnalito_ResultadosAnalitos">
+      <End Role="ResultadosAnalitos" EntitySet="ResultadosAnalitos" />
+      <End Role="BitacoraResultadoAnalito" EntitySet="BitacoraResultadoAnalito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BitacoraSistema_BitacoraSistemaTipo" Association="Self.FK_BitacoraSistema_BitacoraSistemaTipo">
+      <End Role="BitacoraTipo" EntitySet="BitacoraTipo" />
+      <End Role="BitacoraSistema" EntitySet="BitacoraSistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BitacoraSistema_Usuarios" Association="Self.FK_BitacoraSistema_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="BitacoraSistema" EntitySet="BitacoraSistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comunas_Provincias" Association="Self.FK_Comunas_Provincias">
+      <End Role="Provincias" EntitySet="Provincias" />
+      <End Role="Comunas" EntitySet="Comunas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ControlCambios_Examenes" Association="Self.FK_ControlCambios_Examenes">
+      <End Role="Examenes" EntitySet="Examenes" />
+      <End Role="BitacoraExamenes" EntitySet="BitacoraExamenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ControlCambios_Usuarios" Association="Self.FK_ControlCambios_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="BitacoraExamenes" EntitySet="BitacoraExamenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DireccionesDeDespachos_Comunas" Association="Self.FK_DireccionesDeDespachos_Comunas">
+      <End Role="Comunas" EntitySet="Comunas" />
+      <End Role="DireccionesDespachos" EntitySet="DireccionesDespachos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Examen_Laboratorio" Association="Self.FK_Examen_Laboratorio">
+      <End Role="Laboratorios" EntitySet="Laboratorios" />
+      <End Role="Prestaciones" EntitySet="Prestaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Examenes_Estados" Association="Self.FK_Examenes_Estados">
+      <End Role="Estados" EntitySet="Estados" />
+      <End Role="Examenes" EntitySet="Examenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Examenes_Muestras" Association="Self.FK_Examenes_Muestras">
+      <End Role="Muestras" EntitySet="Muestras" />
+      <End Role="Examenes" EntitySet="Examenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Examenes_Prestaciones" Association="Self.FK_Examenes_Prestaciones">
+      <End Role="Prestaciones" EntitySet="Prestaciones" />
+      <End Role="Examenes" EntitySet="Examenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Funcionalidades_Funcionalidades" Association="Self.FK_Funcionalidades_Funcionalidades">
+      <End Role="Funcionalidades" EntitySet="Funcionalidades" />
+      <End Role="Funcionalidades1" EntitySet="Funcionalidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Funcionalidades_Sistemas" Association="Self.FK_Funcionalidades_Sistemas">
+      <End Role="Sistemas" EntitySet="Sistemas" />
+      <End Role="Funcionalidades" EntitySet="Funcionalidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FuncionalidadPorRoles_Funcionalidades" Association="Self.FK_FuncionalidadPorRoles_Funcionalidades">
+      <End Role="Funcionalidades" EntitySet="Funcionalidades" />
+      <End Role="FuncionalidadesPorRol" EntitySet="FuncionalidadesPorRol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FuncionalidadPorRoles_Roles" Association="Self.FK_FuncionalidadPorRoles_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="FuncionalidadesPorRol" EntitySet="FuncionalidadesPorRol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Laboratorio_Seccion" Association="Self.FK_Laboratorio_Seccion">
+      <End Role="Secciones" EntitySet="Secciones" />
+      <End Role="Laboratorios" EntitySet="Laboratorios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LimitesMaximosPermitidos_Normas" Association="Self.FK_LimitesMaximosPermitidos_Normas">
+      <End Role="Normas" EntitySet="Normas" />
+      <End Role="LimitesMaximosPermitidos" EntitySet="LimitesMaximosPermitidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MetodosPorAnalito_Analitos" Association="Self.FK_MetodosPorAnalito_Analitos">
+      <End Role="Analitos" EntitySet="Analitos" />
+      <End Role="MetodosPorAnalito" EntitySet="MetodosPorAnalito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MetodosPorAnalito_Metodos" Association="Self.FK_MetodosPorAnalito_Metodos">
+      <End Role="Metodos" EntitySet="Metodos" />
+      <End Role="MetodosPorAnalito" EntitySet="MetodosPorAnalito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MotivosRechazoPorLaboratorios_Laboratorios" Association="Self.FK_MotivosRechazoPorLaboratorios_Laboratorios">
+      <End Role="Laboratorios" EntitySet="Laboratorios" />
+      <End Role="MotivosRechazoPorLaboratorios" EntitySet="MotivosRechazoPorLaboratorios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MotivosRechazoPorLaboratorios_MotivosRechazo" Association="Self.FK_MotivosRechazoPorLaboratorios_MotivosRechazo">
+      <End Role="MotivosRechazo" EntitySet="MotivosRechazo" />
+      <End Role="MotivosRechazoPorLaboratorios" EntitySet="MotivosRechazoPorLaboratorios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MuestraObservaciones_EstadosIncidentes" Association="Self.FK_MuestraObservaciones_EstadosIncidentes">
+      <End Role="EstadosIncidentes" EntitySet="EstadosIncidentes" />
+      <End Role="MuestraObservaciones" EntitySet="MuestraObservaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MuestraObservaciones_Muestras" Association="Self.FK_MuestraObservaciones_Muestras">
+      <End Role="Muestras" EntitySet="Muestras" />
+      <End Role="MuestraObservaciones" EntitySet="MuestraObservaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MuestraObservaciones_TiposObservaciones" Association="Self.FK_MuestraObservaciones_TiposObservaciones">
+      <End Role="TiposObservaciones" EntitySet="TiposObservaciones" />
+      <End Role="MuestraObservaciones" EntitySet="MuestraObservaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MuestraObservaciones_Usuarios" Association="Self.FK_MuestraObservaciones_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="MuestraObservaciones" EntitySet="MuestraObservaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MuestraObservaciones_Usuarios1" Association="Self.FK_MuestraObservaciones_Usuarios1">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="MuestraObservaciones" EntitySet="MuestraObservaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Muestras_Pacientes" Association="Self.FK_Muestras_Pacientes">
+      <End Role="Pacientes" EntitySet="Pacientes" />
+      <End Role="Muestras" EntitySet="Muestras" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Muestras_Solicitudes" Association="Self.FK_Muestras_Solicitudes">
+      <End Role="Solicitudes" EntitySet="Solicitudes" />
+      <End Role="Muestras" EntitySet="Muestras" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Muestras_TiposDeMuestras" Association="Self.FK_Muestras_TiposDeMuestras">
+      <End Role="TiposMuestras" EntitySet="TiposMuestras" />
+      <End Role="Muestras" EntitySet="Muestras" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Muestras_TiposDeRetiros" Association="Self.FK_Muestras_TiposDeRetiros">
+      <End Role="TiposRetiros" EntitySet="TiposRetiros" />
+      <End Role="Muestras" EntitySet="Muestras" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Normas_Analitos" Association="Self.FK_Normas_Analitos">
+      <End Role="Analitos" EntitySet="Analitos" />
+      <End Role="Normas" EntitySet="Normas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provincias_Regiones" Association="Self.FK_Provincias_Regiones">
+      <End Role="Regiones" EntitySet="Regiones" />
+      <End Role="Provincias" EntitySet="Provincias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rechazos_Examenes" Association="Self.FK_Rechazos_Examenes">
+      <End Role="Examenes" EntitySet="Examenes" />
+      <End Role="Rechazos" EntitySet="Rechazos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rechazos_MotivosRechazo" Association="Self.FK_Rechazos_MotivosRechazo">
+      <End Role="MotivosRechazo" EntitySet="MotivosRechazo" />
+      <End Role="Rechazos" EntitySet="Rechazos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rechazos_Usuarios" Association="Self.FK_Rechazos_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Rechazos" EntitySet="Rechazos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResultadosAmbientes_Examenes" Association="Self.FK_ResultadosAmbientes_Examenes">
+      <End Role="Examenes" EntitySet="Examenes" />
+      <End Role="ResultadosAnalitos" EntitySet="ResultadosAnalitos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResultadosAnalitos_Analitos" Association="Self.FK_ResultadosAnalitos_Analitos">
+      <End Role="Analitos" EntitySet="Analitos" />
+      <End Role="ResultadosAnalitos" EntitySet="ResultadosAnalitos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResultadosAnalitos_LimitesCuentificaciones" Association="Self.FK_ResultadosAnalitos_LimitesCuentificaciones">
+      <End Role="LimitesCuantificaciones" EntitySet="LimitesCuantificaciones" />
+      <End Role="ResultadosAnalitos" EntitySet="ResultadosAnalitos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResultadosAnalitos_LimitesDeteccion" Association="Self.FK_ResultadosAnalitos_LimitesDeteccion">
+      <End Role="LimitesDeteccion" EntitySet="LimitesDeteccion" />
+      <End Role="ResultadosAnalitos" EntitySet="ResultadosAnalitos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResultadosAnalitos_LimitesMaximosPermitidos" Association="Self.FK_ResultadosAnalitos_LimitesMaximosPermitidos">
+      <End Role="LimitesMaximosPermitidos" EntitySet="LimitesMaximosPermitidos" />
+      <End Role="ResultadosAnalitos" EntitySet="ResultadosAnalitos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResultadosAnalitos_Metodos" Association="Self.FK_ResultadosAnalitos_Metodos">
+      <End Role="Metodos" EntitySet="Metodos" />
+      <End Role="ResultadosAnalitos" EntitySet="ResultadosAnalitos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResultadosAnalitos_Normas" Association="Self.FK_ResultadosAnalitos_Normas">
+      <End Role="Normas" EntitySet="Normas" />
+      <End Role="ResultadosAnalitos" EntitySet="ResultadosAnalitos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResultadosAnalitos_UnidadesMedidas" Association="Self.FK_ResultadosAnalitos_UnidadesMedidas">
+      <End Role="UnidadesMedidas" EntitySet="UnidadesMedidas" />
+      <End Role="ResultadosAnalitos" EntitySet="ResultadosAnalitos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Seccion_Subdepartamento" Association="Self.FK_Seccion_Subdepartamento">
+      <End Role="Subdepartamentos" EntitySet="Subdepartamentos" />
+      <End Role="Secciones" EntitySet="Secciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Solicitudes_DireccionesDeDespachos" Association="Self.FK_Solicitudes_DireccionesDeDespachos">
+      <End Role="DireccionesDespachos" EntitySet="DireccionesDespachos" />
+      <End Role="Solicitudes" EntitySet="Solicitudes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Solicitudes_Procedencias" Association="Self.FK_Solicitudes_Procedencias">
+      <End Role="Procedencias" EntitySet="Procedencias" />
+      <End Role="Solicitudes" EntitySet="Solicitudes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subdepartamento_Departamento" Association="Self.FK_Subdepartamento_Departamento">
+      <End Role="Departamentos" EntitySet="Departamentos" />
+      <End Role="Subdepartamentos" EntitySet="Subdepartamentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sucursales_Comunas" Association="Self.FK_Sucursales_Comunas">
+      <End Role="Comunas" EntitySet="Comunas" />
+      <End Role="Sucursales" EntitySet="Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sucursales_Procedencias" Association="Self.FK_Sucursales_Procedencias">
+      <End Role="Procedencias" EntitySet="Procedencias" />
+      <End Role="Sucursales" EntitySet="Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SucursalUnidad_Comunas" Association="Self.FK_SucursalUnidad_Comunas">
+      <End Role="Comunas" EntitySet="Comunas" />
+      <End Role="Unidades" EntitySet="Unidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SucursalUnidad_Sucursales" Association="Self.FK_SucursalUnidad_Sucursales">
+      <End Role="Sucursales" EntitySet="Sucursales" />
+      <End Role="Unidades" EntitySet="Unidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TiposMuestraPorPrestaciones_Prestaciones" Association="Self.FK_TiposMuestraPorPrestaciones_Prestaciones">
+      <End Role="Prestaciones" EntitySet="Prestaciones" />
+      <End Role="TiposMuestraPorPrestaciones" EntitySet="TiposMuestraPorPrestaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TiposMuestraPorPrestaciones_TiposMuestras" Association="Self.FK_TiposMuestraPorPrestaciones_TiposMuestras">
+      <End Role="TiposMuestras" EntitySet="TiposMuestras" />
+      <End Role="TiposMuestraPorPrestaciones" EntitySet="TiposMuestraPorPrestaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnidadesDeMedidas_Analitos" Association="Self.FK_UnidadesDeMedidas_Analitos">
+      <End Role="Analitos" EntitySet="Analitos" />
+      <End Role="UnidadesMedidas" EntitySet="UnidadesMedidas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioPorSistema_Sistema" Association="Self.FK_UsuarioPorSistema_Sistema">
+      <End Role="Sistemas" EntitySet="Sistemas" />
+      <End Role="UsuariosPorSistema" EntitySet="UsuariosPorSistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioPorSistema_Usuario" Association="Self.FK_UsuarioPorSistema_Usuario">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="UsuariosPorSistema" EntitySet="UsuariosPorSistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Roles" Association="Self.FK_Usuarios_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosPorLaboratorios_Laboratorios" Association="Self.FK_UsuariosPorLaboratorios_Laboratorios">
+      <End Role="Laboratorios" EntitySet="Laboratorios" />
+      <End Role="UsuariosPorLaboratorios" EntitySet="UsuariosPorLaboratorios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuariosPorLaboratorios_Usuarios" Association="Self.FK_UsuariosPorLaboratorios_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="UsuariosPorLaboratorios" EntitySet="UsuariosPorLaboratorios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

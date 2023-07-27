@@ -21,5 +21,25 @@ namespace QrMvc.Controllers
             return View();
         }
 
+        // POST: QrTestController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(IFormCollection collection)
+        {
+            try
+            {
+                string a = collection["PaymentMethod"];
+                string m = ""; ;
+                //collection.TryGetValue("datos", out m);
+                string d= collection["debit"].ToString();
+                string c = collection["credit"].ToString();
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
     }
 }

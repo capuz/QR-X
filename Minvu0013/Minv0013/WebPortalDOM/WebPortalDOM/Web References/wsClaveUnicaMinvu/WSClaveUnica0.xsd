@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Minvu.wsClaveUnicaMinvu.Wcf" elementFormDefault="qualified" targetNamespace="http://Minvu.wsClaveUnicaMinvu.Wcf" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="RequestTypeURL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdSitio" type="xs:int" />
+      <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Clave" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestTypeURL" nillable="true" type="tns:RequestTypeURL" />
+  <xs:complexType name="ResponseTypeURL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseTypeURL" nillable="true" type="tns:ResponseTypeURL" />
+  <xs:complexType name="RequestTypeCredencial">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdSitio" type="xs:int" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestTypeCredencial" nillable="true" type="tns:RequestTypeCredencial" />
+  <xs:complexType name="ResponseTypeCredencial">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RUT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombres" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApellidoPaterno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApellidoMaterno" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseTypeCredencial" nillable="true" type="tns:ResponseTypeCredencial" />
+</xs:schema>

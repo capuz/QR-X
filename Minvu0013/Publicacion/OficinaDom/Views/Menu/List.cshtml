@@ -1,0 +1,32 @@
+﻿@using WebOficinaDOM.Models.DTO
+@using GridMvc.Html
+@using Framework.Core
+@model IEnumerable<Menu>
+    <div id="no-more-tables">
+
+    @Html.Grid(Model).Columns(columns =>
+    {
+        columns.Add(m => m.Nombre).Filterable(true);
+        columns.Add(m => m.Url).Titled("URL").Css("truncate-cell");
+        columns.Add(m => m.Destino);
+        columns.Add(m => m.Dependencia);
+        columns.Add(m => m.Activo).Titled("Estado")
+                  .RenderValueAs(m => m.Activo ? "Habilitado" : "Inhabilitado");
+        columns.Add()
+        .Encoded(false)
+        .Sanitized(false)
+        .SetWidth(1)
+        .RenderValueAs(model =>
+
+            Html.ActionLink(" ", "Edit", "Menu",
+                new { id = model.IdMenu },
+                new { @class = "glyphicon glyphicon-edit prevent-default edit-action", title = "Editar" })
+                .ToHtmlString() + "&nbsp;&nbsp;" +
+            Html.ActionLink(" ", "Delete", "Menu",
+                new { id = model.IdMenu },
+                new { @class = "glyphicon glyphicon-remove prevent-default delete-action", title = "Eliminar", data_padre = model.IdMenuPadre }).
+                ToHtmlString())
+        .Titled("Acciones");
+
+    }).Sortable(true).WithPaging(ConfigWrapper.Value<int>("Paging"))
+    </div>

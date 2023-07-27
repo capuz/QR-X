@@ -1,0 +1,12 @@
+C:\Git\QRX.Utils\bin\Debug\net7.0\QRX.Utils.deps.json
+C:\Git\QRX.Utils\bin\Debug\net7.0\QRX.Utils.dll
+C:\Git\QRX.Utils\bin\Debug\net7.0\QRX.Utils.pdb
+C:\Git\QRX.Utils\obj\Debug\net7.0\QRX.Utils.csproj.AssemblyReference.cache
+C:\Git\QRX.Utils\obj\Debug\net7.0\QRX.Utils.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\QRX.Utils\obj\Debug\net7.0\QRX.Utils.AssemblyInfoInputs.cache
+C:\Git\QRX.Utils\obj\Debug\net7.0\QRX.Utils.AssemblyInfo.cs
+C:\Git\QRX.Utils\obj\Debug\net7.0\QRX.Utils.csproj.CoreCompileInputs.cache
+C:\Git\QRX.Utils\obj\Debug\net7.0\QRX.Utils.dll
+C:\Git\QRX.Utils\obj\Debug\net7.0\refint\QRX.Utils.dll
+C:\Git\QRX.Utils\obj\Debug\net7.0\QRX.Utils.pdb
+C:\Git\QRX.Utils\obj\Debug\net7.0\ref\QRX.Utils.dll

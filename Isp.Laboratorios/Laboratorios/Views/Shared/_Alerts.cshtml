@@ -1,0 +1,22 @@
+﻿@using Isp.Laboratorios.Infrastructure
+@{
+    var alertsMessages = TempData.ContainsKey(Alert.TempDataKey) 
+        ? (List<AlertMessage>)TempData[Alert.TempDataKey] 
+        : new List<AlertMessage>();
+
+    foreach (var alertMessage in alertsMessages)
+    {
+        var dismissableClass = alertMessage.Dismissable ? "alert-dismissable" : null;
+        <div class="alert alert-@alertMessage.AlertType @dismissableClass fade in" role="alert">
+            @if (alertMessage.Dismissable)
+            {
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            }
+            <div class="row ">@*vertical-align*@
+                <span class="glyphicon @alertMessage.Glyphicon" aria-hidden="true"></span>
+                <span>@Html.Raw(alertMessage.Message)</span>
+            </div>
+        </div>
+    }
+}
+

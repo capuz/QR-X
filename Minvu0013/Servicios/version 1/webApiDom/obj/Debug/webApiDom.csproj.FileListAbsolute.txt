@@ -1,0 +1,17 @@
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\webApiDom.dll.config
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\webApiDom.dll
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\webApiDom.pdb
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\EntityFramework.dll
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\EntityFramework.SqlServer.dll
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\Newtonsoft.Json.dll
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\System.Net.Http.Formatting.dll
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\System.Web.Http.dll
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\System.Web.Http.WebHost.dll
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\EntityFramework.xml
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\EntityFramework.SqlServer.xml
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\Newtonsoft.Json.xml
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\System.Net.Http.Formatting.xml
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\System.Web.Http.xml
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\bin\System.Web.Http.WebHost.xml
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\obj\Debug\webApiDom.dll
+D:\Kibernum\Minvu0013\Servicios\version 1\webApiDom\obj\Debug\webApiDom.pdb

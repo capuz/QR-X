@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "Bitácora";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var grid = new WebGrid(source: Model);
+    
+    @section Scripts {
+    @Scripts.Render("~/bundles/js-chosen")
+    @Styles.Render("~/bundles/css-chosen")
+    @Scripts.Render("~/bundles/js-grid")
+    }
+}
+@using (Html.BeginForm())
+{
+    <div class="panel panel-info">
+        <div class="panel-heading"><b>@ViewBag.Title</b> - Búsquedas </div>
+        <div class="panel-body form-inline">
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("LblLaboratorios", "Laboratorios")
+                </div>
+                <div class="col-md-9">
+                    @Html.DropDownList("LaboratoriosId", null, new { @class = "chosen-select input-sm", @multiple = "multiple" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("LblTipo", "Tipo")
+                </div>
+                <div class="col-md-9">
+                    @*@Html.DropDownList("Tipo", null, new { @class = "chosen-select input-sm", @multiple = "multiple" })*@
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("LblAntiguedad", "Antiguedad")
+                </div>
+                <div class="col-md-9">
+                    @Html.DropDownList("Antiguedad", null, new { @class = "chosen-select input-sm"})
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("LblUsuario", "Usuario")
+                </div>
+                <div class="col-md-9">
+                    @*@Html.DropDownList("Tipo", null, new { @class = "chosen-select input-sm", @multiple = "multiple" })*@
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.Label("Fecha Ingreso")
+                </div>
+                <div class="col-md-3">
+                    <div class="input-daterange input-group" id="datepicker">
+                        @Html.TextBox("FechaIngresoDesde", null, new { @class = "form-control input-sm", placeholder = "Desde" })
+                        <span class="input-group-addon">Al</span>
+                        @Html.TextBox("FechaIngresoHasta", null, new { @class = "form-control input-sm", placeholder = "Hasta" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-offset-2 col-md-3">
+                <button class="btn btn-primary btn-block"><span class="glyphicon glyphicon-search" id="btnSubmit"></span> Buscar</button>
+            </div>
+
+        </div>
+    </div>
+}
+<div><h2>Bitácora</h2></div>
+<div>
+    <div class="col-md-offset-2 col-md-3">
+       
+        <input class="btn btn-primary btn-block"  type="button" value="Nueva Observación"/>
+  </div>
+
+
+</div>
+
+
+
+@grid.GetHtml(htmlAttributes: new { id = "gridBusquedaGeneral" },
+        fillEmptyRows: false,
+        tableStyle: "table table-bordered table-hover",
+        columns: grid.Columns(
+
+                grid.Column(" "),
+                grid.Column(" "),
+                grid.Column("Muestra.Solicitud.Fecha", "Fecha"),
+                grid.Column("Prestacion.Laboratorio.Nombre", "Laboratorio"),
+                grid.Column("Muestra.Codigo", "Tipo"),
+                grid.Column("Muestra.Solicitud.Codigo", "Usuario"),
+                grid.Column("Muestra.Solicitud.Codigo", "Observaciones")
+    )
+ )
+
+
+
+
+

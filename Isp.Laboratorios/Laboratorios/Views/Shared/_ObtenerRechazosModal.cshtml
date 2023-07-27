@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Isp.Laboratorios.Models.Rechazo>
+@{
+    var grid = new WebGrid(
+        Model,
+        canPage: true,
+        rowsPerPage: 20,
+        canSort: false
+        );
+    grid.Pager(WebGridPagerModes.All);
+}
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header text-center">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">Rechazos de la Muestra @ViewBag.MuestraCodigo</h4>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                @if (Model != null && Model.Any())
+                {
+                    @grid.GetHtml(htmlAttributes: new { id = "gridRechazos" },
+                fillEmptyRows: false,
+                headerStyle: "bg-primary",
+                tableStyle: "table table-bordered table-hover",
+                columns: grid.Columns(
+                
+                    grid.Column("Rechazada Por", format: (item) => item.Usuario.Nombre + " " + item.Usuario.ApellidoPaterno),
+                    grid.Column("Fecha", format: @<text>@item.Fecha.ToString("MM/dd/yyyy hh:ss")</text>),
+                    grid.Column("Observacion", format: (item) => item.Observacion)))
+                }
+            </div>
+        </div>
+        <div class="modal-footer text-center">
+            <div class="col-md-offset-5 col-md-5">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

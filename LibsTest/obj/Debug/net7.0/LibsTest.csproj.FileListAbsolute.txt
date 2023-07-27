@@ -1,0 +1,12 @@
+C:\Git\LibsTest\bin\Debug\net7.0\LibsTest.deps.json
+C:\Git\LibsTest\bin\Debug\net7.0\LibsTest.dll
+C:\Git\LibsTest\bin\Debug\net7.0\LibsTest.pdb
+C:\Git\LibsTest\obj\Debug\net7.0\LibsTest.csproj.AssemblyReference.cache
+C:\Git\LibsTest\obj\Debug\net7.0\LibsTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\LibsTest\obj\Debug\net7.0\LibsTest.AssemblyInfoInputs.cache
+C:\Git\LibsTest\obj\Debug\net7.0\LibsTest.AssemblyInfo.cs
+C:\Git\LibsTest\obj\Debug\net7.0\LibsTest.csproj.CoreCompileInputs.cache
+C:\Git\LibsTest\obj\Debug\net7.0\LibsTest.dll
+C:\Git\LibsTest\obj\Debug\net7.0\refint\LibsTest.dll
+C:\Git\LibsTest\obj\Debug\net7.0\LibsTest.pdb
+C:\Git\LibsTest\obj\Debug\net7.0\ref\LibsTest.dll

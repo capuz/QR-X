@@ -1,0 +1,58 @@
+﻿<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+            <h3 class="title-form">Gestionar Secciones</h3>
+        </div>
+    </div>
+    @*Logo DOM*@
+    <div id="LogoDomContainer">
+        @Html.Action("LogoDom", "Seccion")
+    </div>
+    @*CONTENIDO PRINCIPAL*@
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4 class="title-form">Contenido Principal</h4>
+            <div class="row" style="margin-bottom:20px;">
+                <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                    <button id="btnCreateContenidoPrincipal" class="btn btn-primary btn-md btn-responsive pull-right">
+                        Crear
+                    </button>
+                </div>
+            </div>
+            <div id="ContenidoPrincipalList">
+                @Html.Action("ListContenidoPrincipal", "Seccion")
+            </div>
+        </div>
+    </div>
+    @*CONTENIDO SECUNDARIO*@
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4 class="title-form">Contenido Secundario</h4>
+            <div class="row" style="margin-bottom:20px;">
+                <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+                    <button id="btnCreateContenidoSecundario" class="btn btn-primary btn-md btn-responsive pull-right">
+                        Crear
+                    </button>
+                </div>
+            </div>
+            <div id="ContenidoSecundarioList">
+                @Html.Action("ListContenidoSecundario", "Seccion")
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="SeccionModal" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/pages/secciones.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap-filestyle.js")"></script>
+}
+
+
+
+

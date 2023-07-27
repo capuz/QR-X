@@ -1,0 +1,41 @@
+﻿@using WebPortalDOM.Models.DTO
+@model IEnumerable<Noticia>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h2 id="encabezados" class="titles-site">Noticias</h2>
+    </div>
+</div>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <b> @Html.ActionLink(@item.Titular, "Detalle", new { id = @item.IdNoticia })</b>
+                <div class="pull-right">
+                    <small>@string.Format("{0:dd MMMM yyyy}", @item.FechaPublicacion)</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <p class="text-justify">@item.Bajada</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <hr class="separador" />
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="text-danger text-center">@WebPortalDOM.Resources.ErrorMessageResources.NoContentNotice</div>
+}
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
+        @Html.ActionLink("Ver Más", "../Noticias", null, new { @class = "btn btn-primary btn-sm " })
+    </div>
+</div>

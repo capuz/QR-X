@@ -1,0 +1,93 @@
+﻿@using Isp.Laboratorios.Models
+@model IEnumerable<Isp.Laboratorios.Models.ViewModels.MuestraViewModel>
+@{
+    @section Scripts {
+        @Scripts.Render("~/bundles/js-chosen")
+        @Styles.Render("~/bundles/css-chosen")
+        @Scripts.Render("~/bundles/js-grid")
+        @Scripts.Render("~/bundles/js-blockUI")
+    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    ViewBag.Title = "Ingreso de Resultados";
+}
+@using (Html.BeginForm("ParaIngresoResultados", "Resultados", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    Html.RenderPartial("_Busqueda", (FiltroBusqueda)ViewBag.FiltroBusqueda);
+
+}
+<div id="gridContainer">
+    @Html.Partial("_GridParaIngresoResultados", Model)
+</div>
+<div id="modalRechazoContainer">
+    @Html.Partial("_ConfirmarRechazoModal")
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        gridFunctionCheckAll();
+        var muestrasId = [];
+
+        $("#btnRechazar, #btnRechazarBottom").click(function () {
+
+            muestrasId = [];
+
+            $('#gridCheckAll input#checkboxId:checked').each(function () {
+                muestrasId.push($(this).val());
+            });
+            if (muestrasId.length > 0) {
+
+                obtenerMotivosRechazo(muestrasId);
+
+                $(".modal-body #muestrasIdChecked").val(muestrasId);
+                $('.modal-content #formConfirmarRechazo').attr('action', "@Url.Action("RechazarARecepcionLaboratorio", "Resultados")");
+
+                $('#modalConfirmarRechazo').modal('show');
+            }
+            else {
+                alert("seleccione muestras para rechazar");
+            }
+        });
+        $("#btnIngresoResultados, #btnIngresoResultadosBottom").click(function () {
+
+            var examenesId = [];
+            $('#gridCheckAll input#checkboxId:checked').each(function () {
+
+                $($(this).parents('tr').find('a')).each(function () {
+                    examenesId.push($(this).data('examenid'));
+                });
+
+            });
+            if (examenesId.length > 0) {
+
+                $.ajax({
+                    url: "@Url.Action("IngresoResultados", "Resultados")",
+                    type: 'POST',
+                    data: { examenesId: examenesId },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.responseText + " Ha ocurrido un error.");
+                    },
+                    success: function (data) {
+                        $("#mainContainer").html(data);
+                        $('.chosen-select').chosen();
+                    }
+                });
+
+            }
+            else {
+                alert("seleccione muestras para ingreso de resultados");
+            }
+        });
+
+        $('#gridCheckAll a').click(function () {
+            $("#modalContainer").html("")
+                                .load($(this)
+                                .data("urlaction")).modal('show');
+
+        });
+    });
+
+
+</script>

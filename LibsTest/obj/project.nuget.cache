@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "NtfoX+R8/XmfvhnV8qCv2Q1PYhZb9IrNwBEBVgAN89jtLkRxm9ItRWwepkT7qGnU+lASnqozLzU6W58qtMkx0Q==",
+  "dgSpecHash": "Tom0RUiuv//N2LxqIdp6NWRwinsP2KxkT0H6AvG1MMDDIszJYaiEmuKWlb1NWIM0+HHdscgq396lzp3XSpgCkg==",
   "success": true,
   "projectFilePath": "C:\\Git\\LibsTest\\LibsTest.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\fcapuz\\.nuget\\packages\\htmltablehelper\\1.2.4\\htmltablehelper.1.2.4.nupkg.sha512",
+    "C:\\Users\\fcapuz\\.nuget\\packages\\miniexcel\\1.31.0\\miniexcel.1.31.0.nupkg.sha512"
+  ],
   "logs": []
 }
