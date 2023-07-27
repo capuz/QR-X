@@ -1,6 +1,0 @@
-C:\misdocumentos\Visual Studio 2013\Projects\Isp.Laboratorios\Test\bin\Debug\Test.exe.config
-C:\misdocumentos\Visual Studio 2013\Projects\Isp.Laboratorios\Test\bin\Debug\Test.exe
-C:\misdocumentos\Visual Studio 2013\Projects\Isp.Laboratorios\Test\bin\Debug\Test.pdb
-C:\misdocumentos\Visual Studio 2013\Projects\Isp.Laboratorios\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
-C:\misdocumentos\Visual Studio 2013\Projects\Isp.Laboratorios\Test\obj\Debug\Test.exe
-C:\misdocumentos\Visual Studio 2013\Projects\Isp.Laboratorios\Test\obj\Debug\Test.pdb
