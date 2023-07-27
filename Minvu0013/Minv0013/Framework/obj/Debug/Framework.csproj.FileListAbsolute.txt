@@ -1,5 +1,0 @@
-D:\Kibernum\Minvu0013\Minv0013\Framework\bin\Debug\Framework.dll
-D:\Kibernum\Minvu0013\Minv0013\Framework\bin\Debug\Framework.pdb
-D:\Kibernum\Minvu0013\Minv0013\Framework\obj\Debug\Framework.csprojResolveAssemblyReference.cache
-D:\Kibernum\Minvu0013\Minv0013\Framework\obj\Debug\Framework.dll
-D:\Kibernum\Minvu0013\Minv0013\Framework\obj\Debug\Framework.pdb

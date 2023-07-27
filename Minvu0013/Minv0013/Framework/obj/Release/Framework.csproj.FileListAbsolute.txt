@@ -1,4 +1,0 @@
-D:\Kibernum\Minvu0013\Minv0013\Framework\bin\Release\Framework.dll
-D:\Kibernum\Minvu0013\Minv0013\Framework\bin\Release\Framework.pdb
-D:\Kibernum\Minvu0013\Minv0013\Framework\obj\Release\Framework.dll
-D:\Kibernum\Minvu0013\Minv0013\Framework\obj\Release\Framework.pdb
