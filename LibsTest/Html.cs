@@ -14,9 +14,9 @@ namespace LibsTest
             var data = new List<object>();
             var html = data.ToHtmlTable(
                 tableAttributes:
-                new { @class = "SomeClass" } //this is dynamic type, support all attribute 
+                new { @class = "table table-striped" } //this is dynamic type, support all attribute 
                 , trAttributes:
-                new { ID = "SomeID" }, tdAttributes: new { width = "120 px" }, 
+                new { ID = "table-to-pdf" }, tdAttributes: new { width = "120 px" },
                 thAttributes: new { @class = "dark-theme" }
             );
             return html ?? string.Empty;
